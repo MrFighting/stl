@@ -3,4 +3,4 @@
 
 **主要目标:** 练习算法和数据结构,熟练一下c++模板的运用,增加代码量
 
-**参考资料：**[cppreference](http://zh.cppreference.com/w/cpp)以及[cplusplus](http://www.cplusplus.com/reference/)还有<STL源码剖析>(侯捷)
+**参考资料：**[cppreference](http://zh.cppreference.com/w/cpp)以及[cplusplus](http://www.cplusplus.com/reference/)还有**STL源码剖析**(侯捷)
