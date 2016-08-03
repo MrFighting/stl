@@ -6,8 +6,18 @@
 
 using namespace std;
 
+struct Foo {
+    int i;
+    int j;
+
+    Foo(int i, int j) : i(i), j(j) { }
+};
+
 int main() {
+
+    vector<int> c;
     vector_test1();
-    cout << endl;
     vector_test2();
+    vector_test3();
+
 }

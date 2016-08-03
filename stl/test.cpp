@@ -7,43 +7,38 @@
 //
 void vector_test1() {
     std::vector<int> v;
-    std::vector<int> v2;
     v.insert(v.begin(), 11);
     v.push_back(3);
-    //v.insert(v.end(), 1);
+    v.pop_back();
     v.push_back(4);
+    v.emplace(v.begin(),888);
     v.insert(v.begin()+2,6);
     v.insert(v.begin()+1,7);
     v.push_back(8);
     v.insert(v.end(), 1);
     v.insert(v.begin()+2, 2);
+    v.pop_back();
     v.push_back(9);
+    v.pop_back();
     v.push_back(10);
-//    cout <<v.capacity() << endl;
-//    v.insert(v.end(),1);
-//    cout <<v.capacity() << endl;
-//
-//    v.insert(v.end(),2);
-//    cout <<v.capacity() << endl;
-//
-//    v.insert(v.end(),3);
-//    cout <<v.capacity() << endl;
     v.push_back(1);
     v.push_back(3);
-    auto it = v.insert(v.begin()+1, 2);
-
+    v.insert(v.begin()+1, 2);
+//--------------------------------------
     stl::Vector<int> vec;
     vec.insert(vec.begin(), 11);
-
     vec.push_back(3);
-    //v.insert(v.end(), 1);
+    vec.pop_back();
     vec.push_back(4);
+    vec.emplace(vec.begin(),888);
     vec.insert(vec.begin()+2,6);
     vec.insert(vec.begin()+1,7);
     vec.push_back(8);
     vec.insert(vec.end(), 1);
     vec.insert(vec.begin()+2, 2);
+    vec.pop_back();
     vec.push_back(9);
+    vec.pop_back();
     vec.push_back(10);
     vec.push_back(1);
     vec.push_back(3);
@@ -59,6 +54,8 @@ void vector_test1() {
 
     stl::Vector<int> temp(v.begin(), v.end());
     assert(temp == vec);
+
+    cout << endl;
 }
 
 void vector_test2() {
@@ -88,4 +85,34 @@ void vector_test2() {
     }
     stl::Vector<int> temp(vector1.begin(), vector1.end());
     assert(temp == vector2);
+    cout << endl;
+}
+
+void vector_test3() {
+    stl::Vector<int> vec;
+    vec.resize(100);
+    assert(vec.size() == 100);
+    vec.resize(0);
+    assert(vec.size() == 0);
+
+
+    stl::Vector<int> v;
+    std::cout << "Default-constructed capacity is " << v.capacity() << '\n';
+    v.resize(100);
+    assert(v.size() == 100);
+    std::cout << "Capacity of a 100-element vector is " << v.capacity() << '\n';
+    v.clear();
+    assert(v.size() == 0);
+    std::cout << "Capacity after clear() is " << v.capacity() << '\n';
+    v.shrink_to_fit();
+    assert(v.capacity() == 0);
+    std::cout << "Capacity after shrink_to_fit() is " << v.capacity() << '\n';
+
+
+    stl::Vector<int> vector;
+    v.push_back(1);
+    stl::Vector<int>().swap(v);
+
+    assert(vector.size() == 0 && vector.capacity() == 0);
+    cout << endl;
 }

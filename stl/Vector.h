@@ -1,7 +1,6 @@
 //
 // Created by Administrator on 2016/8/1.
 //
-#define _SCL_SECURE_NO_WARNINGS
 #ifndef STL_VECTOR_H
 #define STL_VECTOR_H
 
@@ -41,18 +40,17 @@ namespace stl {
     private:
         std::allocator<T> alloc; //分配器
 
-        T *m_first; //首地址
+        iterator m_first; //首地址
 
-        T *m_last;    //尾地址
+        iterator m_last;    //尾地址
 
-        T *m_end; //最大地址
+        iterator m_end; //最大地址
 
         void check();//检查是否满了,并扩容
 
         void destory(iterator beg, iterator end);
 
-        void reserve_aux(size_t newsize);
-
+        void reserve_aux(size_t newsize);//将元素拷贝至变动后的地址
 
     public:
         //constructor
@@ -70,6 +68,8 @@ namespace stl {
         template<typename InputIterator>
         explicit Vector(InputIterator first, InputIterator last);
 
+        ~Vector(){destory(m_first, m_last); alloc.deallocate(m_first, capacity());}//析构
+
         //modifiers
         void push_back(const T &t);
 
@@ -79,13 +79,15 @@ namespace stl {
         iterator insert(iterator it, InputIterator begin, InputIterator end);
 
         template<class... Args>
-        void emplace(const_iterator pos, Args &&... args);
+        void emplace(iterator pos, Args &&... args);
 
         void pop_back();
 
-        void resize(size_type count, T value = T());
+        void resize(size_type count, T value = T());//若当前大小小于count则追加元素，否则将大小调整为count
 
-        void swap(Vector &other);
+        void clear();//清除所有元素,但容量不变
+
+        void swap(Vector &other);//交换m_first,m_last,m_end
 
         iterator erase(iterator pos);
 
@@ -95,12 +97,12 @@ namespace stl {
 
         iterator erase(const_iterator first, const_iterator last);
 
+        void shrink_to_fit();//递归的缩小
+
         //capacity
         bool empty() const { return m_first == m_last; };
 
         size_type size() const { return m_last - m_first; };
-
-        size_type max_size() const;
 
         void reserve(size_t newsize);
 
@@ -156,9 +158,7 @@ namespace stl {
     Vector<T>::Vector(size_type count, const T &value) {
         m_first = alloc.allocate(count);
         m_last = m_end = m_first + count;
-        for (auto it = m_first; m_first != m_last; it++) {
-            alloc.construct(it, value);
-        }
+        uninitialized_fill_n(m_first, count, value);
     }
 
     template<typename T>
@@ -302,6 +302,63 @@ namespace stl {
     template<typename T>
     typename Vector<T>::const_reference Vector<T>::operator[](size_type index) const {
         return *(m_first + index);
+    }
+
+    template <typename T>
+    template<class... Args>
+    void Vector<T>::emplace(iterator pos, Args &&... args) {
+        insert(pos, T(args...));
+    }
+
+
+    template <typename T>
+    void Vector<T>::pop_back() {
+        alloc.destroy(--m_last);//销毁最后一个元素
+        shrink_to_fit();
+    }
+
+    template <typename T>
+    void Vector<T>::resize(size_type count, T value) {
+        int diff = count - size();//若为size_t就会出错,diff永远不会小于0
+        if (diff < 0) {
+            destory(m_last + diff, m_last);
+            m_last = m_last + diff;//相加即是相减
+
+            shrink_to_fit();
+        }
+        else {
+            reserve(count);//预留count个大小
+            uninitialized_fill_n(m_last, diff, value);
+            m_last += count;
+        }
+    }
+    template <typename T>
+    void Vector<T>::shrink_to_fit() {
+        if(capacity() && size() < 0.5*capacity()) {
+            size_t newsize = size() / 2;
+            reserve_aux(newsize);
+
+            shrink_to_fit();//递归的进行
+        }
+    }
+
+    template <typename T>
+    void Vector<T>::clear() {
+        destory(m_first, m_last);
+        m_last = m_first;
+    }
+
+    template <typename T>
+    void Vector<T>::swap(Vector &other) {
+        std::swap(m_first, other.m_first);
+        std::swap(m_last, other.m_last);
+        std::swap(m_end, other.m_end);
+    }
+
+    template<typename T>
+    typename Vector<T>::iterator Vector<T>::erase(iterator pos) {
+        //iterator ret = ++pos;//返回后一个元素
+
     }
 
 

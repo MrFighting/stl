@@ -31,22 +31,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="48">
-              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-              <folding />
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -54,18 +46,18 @@
       <file leaf-file-name="test.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="240">
+              <caret line="10" column="60" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="88" column="23" selection-start-line="88" selection-start-column="23" selection-end-line="88" selection-end-column="23" />
+            <state relative-caret-position="690">
+              <caret line="115" column="57" selection-start-line="115" selection-start-column="57" selection-end-line="115" selection-end-column="57" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -76,8 +68,8 @@
       <file leaf-file-name="stl_vector.h" pinned="false" current-in-tab="false">
         <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/stl_vector.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23383">
-              <caret line="1404" column="31" selection-start-line="1404" selection-start-column="31" selection-end-line="1404" selection-end-column="31" />
+            <state relative-caret-position="339">
+              <caret line="1113" column="25" selection-start-line="1113" selection-start-column="25" selection-end-line="1113" selection-end-column="25" />
               <folding>
                 <element signature="e#47860#47891#0" expanded="true" />
               </folding>
@@ -85,36 +77,72 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vector.tcc" pinned="false" current-in-tab="false">
-        <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/vector.tcc">
+      <file leaf-file-name="alloc_traits.h" pinned="false" current-in-tab="false">
+        <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/ext/alloc_traits.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="306" column="50" selection-start-line="306" selection-start-column="50" selection-end-line="306" selection-end-column="50" />
+            <state relative-caret-position="195">
+              <caret line="168" column="16" selection-start-line="168" selection-start-column="16" selection-end-line="168" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Vector.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Vector.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="359" column="10" selection-start-line="359" selection-start-column="10" selection-end-line="359" selection-end-column="10" />
               <folding>
-                <element signature="e#9345#9364#0" expanded="true" />
+                <element signature="e#167#179#0" expanded="true" />
+                <element signature="e#211#223#0" expanded="true" />
+                <element signature="e#296#308#0" expanded="true" />
+                <element signature="e#381#393#0" expanded="true" />
+                <element signature="e#1685#1709#0" expanded="true" />
+                <element signature="e#1990#2014#0" expanded="true" />
+                <element signature="e#2110#2125#0" expanded="true" />
+                <element signature="e#7933#7945#0" expanded="true" />
+                <element signature="e#8095#8107#0" expanded="true" />
+                <element signature="e#8282#8294#0" expanded="true" />
+                <element signature="e#8424#8436#0" expanded="true" />
+                <element signature="e#8579#8591#0" expanded="true" />
+                <element signature="e#8604#8619#0" expanded="true" />
+                <element signature="e#8735#8747#0" expanded="true" />
+                <element signature="e#8869#8881#0" expanded="true" />
+                <element signature="e#9318#9330#0" expanded="true" />
+                <element signature="e#9563#9575#0" expanded="true" />
+                <element signature="e#9686#9698#0" expanded="true" />
+                <element signature="e#9883#9895#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Vector.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Vector.h">
+      <file leaf-file-name="tuple" pinned="false" current-in-tab="false">
+        <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/tuple">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="171" column="50" selection-start-line="171" selection-start-column="50" selection-end-line="171" selection-end-column="50" />
-              <folding>
-                <element signature="e#199#211#0" expanded="true" />
-                <element signature="e#243#255#0" expanded="true" />
-                <element signature="e#328#340#0" expanded="true" />
-                <element signature="e#413#425#0" expanded="true" />
-                <element signature="e#1686#1710#0" expanded="true" />
-                <element signature="e#1902#1926#0" expanded="true" />
-                <element signature="e#2022#2037#0" expanded="true" />
-                <element signature="e#7812#7824#0" expanded="true" />
-                <element signature="e#7974#7986#0" expanded="true" />
-                <element signature="e#8161#8173#0" expanded="true" />
-                <element signature="e#8303#8315#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="195">
+              <caret line="1047" column="4" selection-start-line="1047" selection-start-column="4" selection-end-line="1047" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stl_bvector.h" pinned="false" current-in-tab="false">
+        <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/stl_bvector.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="119" column="2" selection-start-line="119" selection-start-column="2" selection-end-line="119" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stl_uninitialized.h" pinned="false" current-in-tab="false">
+        <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/stl_uninitialized.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="197" column="11" selection-start-line="197" selection-start-column="11" selection-end-line="197" selection-end-column="11" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -122,8 +150,8 @@
       <file leaf-file-name="stl_algobase.h" pinned="false" current-in-tab="false">
         <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/stl_algobase.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="750" column="0" selection-start-line="750" selection-start-column="0" selection-end-line="750" selection-end-column="0" />
+            <state relative-caret-position="124">
+              <caret line="745" column="23" selection-start-line="745" selection-start-column="23" selection-end-line="745" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -139,10 +167,10 @@
         <option value="$PROJECT_DIR$/vector.cpp" />
         <option value="$PROJECT_DIR$/vector.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/test.h" />
-        <option value="$PROJECT_DIR$/Vector.h" />
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/test.h" />
         <option value="$PROJECT_DIR$/test.cpp" />
+        <option value="$PROJECT_DIR$/Vector.h" />
       </list>
     </option>
   </component>
@@ -411,6 +439,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32822758" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858595" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32275712" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -422,7 +451,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -439,7 +467,14 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="14" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Vector.h</url>
+          <line>330</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="18" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -464,7 +499,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -473,17 +510,25 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#199#211#0" expanded="true" />
-            <element signature="e#243#255#0" expanded="true" />
-            <element signature="e#328#340#0" expanded="true" />
-            <element signature="e#413#425#0" expanded="true" />
-            <element signature="e#1686#1710#0" expanded="true" />
-            <element signature="e#1902#1926#0" expanded="true" />
-            <element signature="e#2022#2037#0" expanded="true" />
-            <element signature="e#7812#7824#0" expanded="true" />
-            <element signature="e#7974#7986#0" expanded="true" />
-            <element signature="e#8161#8173#0" expanded="true" />
-            <element signature="e#8303#8315#0" expanded="true" />
+            <element signature="e#167#179#0" expanded="true" />
+            <element signature="e#211#223#0" expanded="true" />
+            <element signature="e#296#308#0" expanded="true" />
+            <element signature="e#381#393#0" expanded="true" />
+            <element signature="e#1685#1709#0" expanded="true" />
+            <element signature="e#1990#2014#0" expanded="true" />
+            <element signature="e#2110#2125#0" expanded="true" />
+            <element signature="e#7933#7945#0" expanded="true" />
+            <element signature="e#8095#8107#0" expanded="true" />
+            <element signature="e#8282#8294#0" expanded="true" />
+            <element signature="e#8424#8436#0" expanded="true" />
+            <element signature="e#8579#8591#0" expanded="true" />
+            <element signature="e#8604#8619#0" expanded="true" />
+            <element signature="e#8735#8747#0" expanded="true" />
+            <element signature="e#8869#8881#0" expanded="true" />
+            <element signature="e#9318#9330#0" expanded="true" />
+            <element signature="e#9563#9575#0" expanded="true" />
+            <element signature="e#9686#9698#0" expanded="true" />
+            <element signature="e#9883#9895#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -500,7 +545,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -511,17 +558,25 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#199#211#0" expanded="true" />
-            <element signature="e#243#255#0" expanded="true" />
-            <element signature="e#328#340#0" expanded="true" />
-            <element signature="e#413#425#0" expanded="true" />
-            <element signature="e#1686#1710#0" expanded="true" />
-            <element signature="e#1902#1926#0" expanded="true" />
-            <element signature="e#2022#2037#0" expanded="true" />
-            <element signature="e#7812#7824#0" expanded="true" />
-            <element signature="e#7974#7986#0" expanded="true" />
-            <element signature="e#8161#8173#0" expanded="true" />
-            <element signature="e#8303#8315#0" expanded="true" />
+            <element signature="e#167#179#0" expanded="true" />
+            <element signature="e#211#223#0" expanded="true" />
+            <element signature="e#296#308#0" expanded="true" />
+            <element signature="e#381#393#0" expanded="true" />
+            <element signature="e#1685#1709#0" expanded="true" />
+            <element signature="e#1990#2014#0" expanded="true" />
+            <element signature="e#2110#2125#0" expanded="true" />
+            <element signature="e#7933#7945#0" expanded="true" />
+            <element signature="e#8095#8107#0" expanded="true" />
+            <element signature="e#8282#8294#0" expanded="true" />
+            <element signature="e#8424#8436#0" expanded="true" />
+            <element signature="e#8579#8591#0" expanded="true" />
+            <element signature="e#8604#8619#0" expanded="true" />
+            <element signature="e#8735#8747#0" expanded="true" />
+            <element signature="e#8869#8881#0" expanded="true" />
+            <element signature="e#9318#9330#0" expanded="true" />
+            <element signature="e#9563#9575#0" expanded="true" />
+            <element signature="e#9686#9698#0" expanded="true" />
+            <element signature="e#9883#9895#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -531,7 +586,6 @@
     <entry file="file://$PROJECT_DIR$/algorithms.h" />
     <entry file="file://$PROJECT_DIR$/vector.cpp" />
     <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/mingw32/bits/c++config.h" />
-    <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/stl_uninitialized.h" />
     <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/stl_iterator.h" />
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -541,76 +595,118 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/vector.tcc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="306" column="50" selection-start-line="306" selection-start-column="50" selection-end-line="306" selection-end-column="50" />
+          <folding>
+            <element signature="e#9345#9364#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/stl_uninitialized.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="197" column="11" selection-start-line="197" selection-start-column="11" selection-end-line="197" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/stl_algobase.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="745" column="23" selection-start-line="745" selection-start-column="23" selection-end-line="745" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/stl_vector.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23383">
-          <caret line="1404" column="31" selection-start-line="1404" selection-start-column="31" selection-end-line="1404" selection-end-column="31" />
+        <state relative-caret-position="339">
+          <caret line="1113" column="25" selection-start-line="1113" selection-start-column="25" selection-end-line="1113" selection-end-column="25" />
           <folding>
             <element signature="e#47860#47891#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/vector.tcc">
+    <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/ext/alloc_traits.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="306" column="50" selection-start-line="306" selection-start-column="50" selection-end-line="306" selection-end-column="50" />
-          <folding>
-            <element signature="e#9345#9364#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/stl_algobase.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="750" column="0" selection-start-line="750" selection-start-column="0" selection-end-line="750" selection-end-column="0" />
+        <state relative-caret-position="195">
+          <caret line="168" column="16" selection-start-line="168" selection-start-column="16" selection-end-line="168" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.h">
+    <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/tuple">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="195">
+          <caret line="1047" column="4" selection-start-line="1047" selection-start-column="4" selection-end-line="1047" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Vector.h">
+    <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/stl_bvector.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="171" column="50" selection-start-line="171" selection-start-column="50" selection-end-line="171" selection-end-column="50" />
-          <folding>
-            <element signature="e#199#211#0" expanded="true" />
-            <element signature="e#243#255#0" expanded="true" />
-            <element signature="e#328#340#0" expanded="true" />
-            <element signature="e#413#425#0" expanded="true" />
-            <element signature="e#1686#1710#0" expanded="true" />
-            <element signature="e#1902#1926#0" expanded="true" />
-            <element signature="e#2022#2037#0" expanded="true" />
-            <element signature="e#7812#7824#0" expanded="true" />
-            <element signature="e#7974#7986#0" expanded="true" />
-            <element signature="e#8161#8173#0" expanded="true" />
-            <element signature="e#8303#8315#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="195">
+          <caret line="119" column="2" selection-start-line="119" selection-start-column="2" selection-end-line="119" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="60" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="88" column="23" selection-start-line="88" selection-start-column="23" selection-end-line="88" selection-end-column="23" />
+        <state relative-caret-position="690">
+          <caret line="115" column="57" selection-start-line="115" selection-start-column="57" selection-end-line="115" selection-end-column="57" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="359" column="10" selection-start-line="359" selection-start-column="10" selection-end-line="359" selection-end-column="10" />
+          <folding>
+            <element signature="e#167#179#0" expanded="true" />
+            <element signature="e#211#223#0" expanded="true" />
+            <element signature="e#296#308#0" expanded="true" />
+            <element signature="e#381#393#0" expanded="true" />
+            <element signature="e#1685#1709#0" expanded="true" />
+            <element signature="e#1990#2014#0" expanded="true" />
+            <element signature="e#2110#2125#0" expanded="true" />
+            <element signature="e#7933#7945#0" expanded="true" />
+            <element signature="e#8095#8107#0" expanded="true" />
+            <element signature="e#8282#8294#0" expanded="true" />
+            <element signature="e#8424#8436#0" expanded="true" />
+            <element signature="e#8579#8591#0" expanded="true" />
+            <element signature="e#8604#8619#0" expanded="true" />
+            <element signature="e#8735#8747#0" expanded="true" />
+            <element signature="e#8869#8881#0" expanded="true" />
+            <element signature="e#9318#9330#0" expanded="true" />
+            <element signature="e#9563#9575#0" expanded="true" />
+            <element signature="e#9686#9698#0" expanded="true" />
+            <element signature="e#9883#9895#0" expanded="true" />
           </folding>
         </state>
       </provider>
