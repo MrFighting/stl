@@ -52,6 +52,8 @@ namespace stl {
 
         void reserve_aux(size_t newsize);//将元素拷贝至变动后的地址
 
+        void erase_at_end(iterator pos) { m_last = pos; }//将m_last 设为 pos
+
     public:
         //constructor
         explicit Vector(size_type count);
@@ -68,7 +70,10 @@ namespace stl {
         template<typename InputIterator>
         explicit Vector(InputIterator first, InputIterator last);
 
-        ~Vector(){destory(m_first, m_last); alloc.deallocate(m_first, capacity());}//析构
+        ~Vector() {
+            destory(m_first, m_last);
+            alloc.deallocate(m_first, capacity());
+        }//析构
 
         //modifiers
         void push_back(const T &t);
@@ -89,11 +94,11 @@ namespace stl {
 
         void swap(Vector &other);//交换m_first,m_last,m_end
 
-        iterator erase(iterator pos);
+        iterator erase(iterator pos);//并不实际删除元素
 
         iterator erase(const_iterator pos);
 
-        iterator erase(iterator first, iterator last);
+        iterator erase(iterator firstx, iterator last);
 
         iterator erase(const_iterator first, const_iterator last);
 
@@ -127,13 +132,13 @@ namespace stl {
 
         const_reference at(size_type index) const;
 
-        reference front();
+        reference front() { return *m_first; };
 
-        const_reference front() const;
+        const_reference front() const { return *m_first; }
 
-        reference back();
+        reference back() { return *(m_last - 1); }
 
-        const_reference back() const;
+        const_reference back() const { return *(m_last - 1); }
 
         const_reference operator[](size_type pos) const;
 
@@ -283,41 +288,41 @@ namespace stl {
     //comparator == and !=
 
     template<typename T>
-    bool operator==(const Vector<T> &lhs, const Vector<T> &rhs) {
+    inline bool operator==(const Vector<T> &lhs, const Vector<T> &rhs) {
         return std::equal(lhs.begin(), lhs.end(), rhs.begin());
     }
 
     template<typename T>
-    bool operator!=(const Vector<T> &lhs, const Vector<T> &rhs) {
+    inline bool operator!=(const Vector<T> &lhs, const Vector<T> &rhs) {
         return !std::equal(lhs.begin(), lhs.end(), rhs.begin());
     }
 
     //reference access
 
     template<typename T>
-    typename Vector<T>::reference Vector<T>::operator[](size_type index) {
+    inline typename Vector<T>::reference Vector<T>::operator[](size_type index) {
         return *(m_first + index);
     }
 
     template<typename T>
-    typename Vector<T>::const_reference Vector<T>::operator[](size_type index) const {
+    inline typename Vector<T>::const_reference Vector<T>::operator[](size_type index) const {
         return *(m_first + index);
     }
 
-    template <typename T>
+    template<typename T>
     template<class... Args>
-    void Vector<T>::emplace(iterator pos, Args &&... args) {
+    inline void Vector<T>::emplace(iterator pos, Args &&... args) {
         insert(pos, T(args...));
     }
 
 
-    template <typename T>
-    void Vector<T>::pop_back() {
+    template<typename T>
+    inline void Vector<T>::pop_back() {
         alloc.destroy(--m_last);//销毁最后一个元素
-        shrink_to_fit();
+        //shrink_to_fit();
     }
 
-    template <typename T>
+    template<typename T>
     void Vector<T>::resize(size_type count, T value) {
         int diff = count - size();//若为size_t就会出错,diff永远不会小于0
         if (diff < 0) {
@@ -332,9 +337,10 @@ namespace stl {
             m_last += count;
         }
     }
-    template <typename T>
-    void Vector<T>::shrink_to_fit() {
-        if(capacity() && size() < 0.5*capacity()) {
+
+    template<typename T>
+    inline void Vector<T>::shrink_to_fit() {
+        if (capacity() && size() < 0.5 * capacity()) {
             size_t newsize = size() / 2;
             reserve_aux(newsize);
 
@@ -342,25 +348,49 @@ namespace stl {
         }
     }
 
-    template <typename T>
-    void Vector<T>::clear() {
+    template<typename T>
+    inline void Vector<T>::clear() {
         destory(m_first, m_last);
         m_last = m_first;
     }
 
-    template <typename T>
-    void Vector<T>::swap(Vector &other) {
+    template<typename T>
+    inline void Vector<T>::swap(Vector &other) {
         std::swap(m_first, other.m_first);
         std::swap(m_last, other.m_last);
         std::swap(m_end, other.m_end);
     }
 
     template<typename T>
-    typename Vector<T>::iterator Vector<T>::erase(iterator pos) {
+    inline typename Vector<T>::iterator Vector<T>::erase(iterator pos) {
         //iterator ret = ++pos;//返回后一个元素
-
+        copy(pos + 1, m_last, pos);//后面的元素往前移动一个
+        erase_at_end(m_last - 1);
+        return pos;
     }
 
+    template<typename T>
+    inline typename Vector<T>::iterator Vector<T>::erase(iterator first, iterator last) {
+        copy(last, m_last, first);
+        erase_at_end(m_last - (last - first));
+        return first;
+    }
+
+    template<typename T>
+    inline typename Vector<T>::const_reference Vector<T>::at(size_type index) const {
+        if (index >= size()) {
+            __throw_out_of_range(__N("vector::_M_range_check"));
+        }
+        return (*this)[index];
+    }
+
+    template<typename T>
+    inline typename Vector<T>::reference Vector<T>::at(size_type index) {
+        if (index >= size()) {
+            __throw_out_of_range(__N("vector::_M_range_check"));
+        }
+        return (*this)[index];
+    }
 
 }
 

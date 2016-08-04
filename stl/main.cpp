@@ -15,9 +15,17 @@ struct Foo {
 
 int main() {
 
-    vector<int> c;
-    vector_test1();
-    vector_test2();
-    vector_test3();
+    vector<Foo> c;
+    c.push_back(Foo(1,2));
+    c.push_back(Foo(3,4));
+    auto it = c.begin();
+    auto end = c.end() - 1;
+    c.erase(c.begin(), c.end());
+    cout << it->i << " " << it->j<<endl;
+    cout << end->i << " " << end->j<<endl;
+
+//    vector_test1();
+//    vector_test2();
+//    vector_test3();
 
 }
