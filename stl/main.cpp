@@ -3,6 +3,7 @@
 #include <list>
 #include "Vector.h"
 #include "test.h"
+#include "List.h"
 
 using namespace std;
 
@@ -15,17 +16,14 @@ struct Foo {
 
 int main() {
 
-    vector<Foo> c;
-    c.push_back(Foo(1,2));
-    c.push_back(Foo(3,4));
-    auto it = c.begin();
-    auto end = c.end() - 1;
-    c.erase(c.begin(), c.end());
-    cout << it->i << " " << it->j<<endl;
-    cout << end->i << " " << end->j<<endl;
-
-//    vector_test1();
-//    vector_test2();
-//    vector_test3();
+//    int a[] = {4,5,6};
+//    //list_test1();
+//    stl::List<int> l{1,2};
+//    l.insert(l.end(), begin(a), end(a));
+//    for (auto i : l) {
+//        cout << i << " ";
+//    }
+//    cout << endl;
+    list_test1();
 
 }

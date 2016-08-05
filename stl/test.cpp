@@ -1,7 +1,11 @@
 #include <iostream>
+#include <algorithm>
 #include <vector>
 #include <assert.h>
+#include <list>
 #include "Vector.h"
+#include "List.h"
+
 //
 // Created by Administrator on 2016/8/3.
 //
@@ -114,5 +118,111 @@ void vector_test3() {
     stl::Vector<int>().swap(v);
 
     assert(vector.size() == 0 && vector.capacity() == 0);
+    cout << endl;
+}
+
+void list_test1() {
+    stl::List<int> l1{1,2,3,4,5};
+
+    for (auto i : l1) {
+        cout << i << " ";
+    }
+    cout << endl;
+    std::list<int> sl1{1,2,3,4,5};
+
+    assert(l1 == stl::List<int>(sl1.begin(), sl1.end()));
+
+    stl ::List<int> l2(l1);
+    assert(l1 == l2);
+
+    l1.push_back(6);
+    l1.pop_back();
+    assert(l1 == l2);
+
+    l1.push_back(7);
+    l1.push_back(8);
+    l1.push_back(9);
+    assert(l1 == stl::List<int>({1,2,3,4,5,7,8,9}));
+
+    l1.pop_back();
+    l1.pop_back();
+    l1.pop_back();
+    assert(l1 == l2);
+
+    //--------------------------
+    l1.push_font(6);
+    l1.pop_front();
+    assert(l1 == l2);
+
+    l1.push_font(7);
+    l1.push_font(8);
+    l1.push_font(9);
+    assert(l1 == stl::List<int>({9,8,7,1,2,3,4,5}));
+
+    l1.pop_front();
+    l1.pop_front();
+    l1.pop_front();
+    assert(l1 == l2);
+    //------------------------------insert测试
+    auto it = std::find(l1.begin(), l1.end(),3);
+    l1.insert(it, 6);
+    for (auto i : l1) {
+        cout << i << " ";
+    }
+    cout << endl;
+    auto it2 = std::find(l1.begin(), l1.end(), 4);
+    int a[]{5,2,0,1,3,1,4};
+    cout<< *l1.insert(it2, begin(a), end(a))<< endl;
+    for (auto i : l1) {
+        cout << i << " ";
+    }
+    cout << endl;
+    auto it3 = std::find(l1.begin(), l1.end(), 5);
+    cout<< *l1.insert(l1.end(), begin(a), end(a))<< endl;
+    for (auto i : l1) {
+        cout << i << " ";
+    }
+    cout << endl;
+    //------------------resize
+    stl::List<int> l3{1,2,3,4,5};
+    auto sz = l1.size();
+    l1.resize(3);
+    for (auto i : l1) {
+        cout << i << " ";
+    }
+    cout << endl;
+    l1.resize(20);
+    for (auto i : l1) {
+        cout << i << " ";
+    }
+    cout << endl;
+    //--------------swap
+    stl::List<int> l4{1,2,3};
+    stl::List<int> l5{4,5,6};
+
+    auto it4 = l1.begin();
+    auto it5 = l2.begin();
+
+    l4.swap(l5);
+   // cout << *it4;
+    //cout << *l4.begin();
+
+    //------------------erase
+    stl::List<int> l6{1,2,3,4,5,6};
+    auto iter = std::find(l6.begin(), l6.end(),3);
+    l6.erase(iter);
+    auto iter2 = std::find(l6.begin(), l6.end(),2);
+    l6.erase(iter2, l6.end());
+    for (auto i : l6) {
+        cout << i << " ";
+    }
+    cout << endl;
+    //-------------------merge
+    stl::List<int> l7{1,5,8,10,12,15};
+    stl::List<int> l8{2,6,7,12,14,17};
+    l7.merge(l8);
+    for (auto i : l7) {
+        cout << i << " ";
+    }
     cout << endl;
 }
