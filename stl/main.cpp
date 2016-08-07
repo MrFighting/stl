@@ -15,7 +15,8 @@ struct Foo {
 };
 
 int main() {
-
+    std::list<int> l;
+   // l.unique()
 //    int a[] = {4,5,6};
 //    //list_test1();
 //    stl::List<int> l{1,2};

@@ -220,8 +220,60 @@ void list_test1() {
     //-------------------merge
     stl::List<int> l7{1,5,8,10,12,15};
     stl::List<int> l8{2,6,7,12,14,17};
-    l7.merge(l8);
+    stl::List<int> ll{1,2,3,4};
+    stl::List<int> ll1{5,6,7,8};
+    ll.merge(ll1);
     for (auto i : l7) {
+        cout << i << " ";
+    }
+    cout << endl;
+    //-------------------transfer
+    l7.transfer(l7.end(),l8.begin(),l8.end());
+    for (auto i : l7) {
+        cout << i << " ";
+    }
+    cout << endl;
+    assert(l7 == stl::List<int>({1,5,8,10,12,15,2,6,7,12,14,17}));
+    assert(l8 == stl::List<int>());
+    auto ite = std::find(l7.begin(), l7.end(), 15);
+    l7.transfer(l7.begin(), ite, l7.end());
+    assert(l7 == stl::List<int>({15,2,6,7,12,14,17,1,5,8,10,12}));
+    for (auto i : l7) {
+        cout << i << " ";
+    }
+    cout << endl;
+    //-------------------spice
+    ll.splice(++ll.begin(),l7);
+    for (auto i : ll) {
+        cout << i << " ";
+    }
+    cout << endl;
+    //-------------------reverse
+    stl::List<int> rlist{1,2,3,4,5,6};
+    rlist.reverse();
+    assert(rlist == stl::List<int>({6,5,4,3,2,1}));
+    rlist.reverse();
+    assert(rlist == stl::List<int>({1,2,3,4,5,6}));
+    //-------------------unique
+    stl::List<int> ulist{1, 2, 2, 3, 3, 2, 1, 1, 2};
+    ulist.unique();
+    assert(ulist == stl::List<int>({1, 2, 3, 2, 1, 2}));
+    stl::List<int> u2list{1,1,1,1,1,1};
+    u2list.unique();
+    stl::List<int> u;
+    u.push_back(1);
+    assert(u2list ==stl::List<int>({1}) && u2list == u );
+    //-------------------sort
+    stl::List<int> slist{5,4,3,2,1};
+    slist.sort();
+    for (auto i : slist) {
+        cout << i << " ";
+    }
+    cout << endl;
+    stl::List<int> s2list{1,2,3,4,5};
+    assert(slist == s2list);
+    s2list.sort();
+    for (auto i : s2list) {
         cout << i << " ";
     }
     cout << endl;
