@@ -225,7 +225,7 @@ namespace stl {
     template<typename T>
     List<T>::List(List::size_type count, const T &value) {
         if (count == 0) {
-            __throw_range_error("list construct fail,size can not be 0");
+            __throw_range_error("list construct fail,bucket_size can not be 0");
         }
         node = alloc.allocate(1);//哨兵节点
         node_type next = nullptr;
@@ -354,16 +354,16 @@ namespace stl {
         int diff = count - size();
 
         if (diff > 0) {
-//            node_type head = creat_node(value);
-//            node_type pre = head;
+//            node head = creat_node(value);
+//            node pre = head;
 //            for (int i = 0; i < diff - 1; ++i) {
-//                node_type cur = creat_node(value);
+//                node cur = creat_node(value);
 //                pre->next = cur;
 //                cur->prev = pre;
 //                pre = cur;
 //            }
 //
-//            node_type tail = pre;
+//            node tail = pre;
 //            node->prev->next = head;
 //            head->prev = node->prev;
 //

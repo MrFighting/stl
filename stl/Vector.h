@@ -56,7 +56,7 @@ namespace stl {
 
     public:
         //constructor
-        explicit Vector(size_type count);
+        //explicit Vector(size_type count);
 
         explicit Vector(const Vector &other);
 
@@ -70,8 +70,9 @@ namespace stl {
         template<typename InputIterator>
         explicit Vector(InputIterator first, InputIterator last);
 
+        Vector& operator=(const Vector&);
         ~Vector() {
-            destory(m_first, m_last);
+            clear();
             alloc.deallocate(m_first, capacity());
         }//析构
 
@@ -146,11 +147,11 @@ namespace stl {
 
     };
 
-    template<typename T>
-    Vector<T>::Vector(size_t count) {
-        m_last = m_first = alloc.allocate(count);
-        m_end = m_first + count;
-    }
+//    template<typename T>
+//    Vector<T>::Vector(size_t count) {
+//        m_last = m_first = alloc.allocate(count);
+//        m_end = m_first + count;
+//    }
 
     template<typename T>
     Vector<T>::Vector(const Vector &other) {
@@ -390,6 +391,18 @@ namespace stl {
             __throw_out_of_range(__N("vector::_M_range_check"));
         }
         return (*this)[index];
+    }
+
+    template<typename T>
+    Vector<T>& Vector<T>::operator=(const Vector &other) {
+        if (this == &other)
+            return *this;
+        clear();
+        alloc.deallocate(m_first, capacity());
+        m_first = alloc.allocate(other.capacity());
+        m_end = m_first + other.capacity();
+        uninitialized_copy(other.begin(), other.end(), m_first);
+        m_last = m_first + other.size();
     }
 
 }

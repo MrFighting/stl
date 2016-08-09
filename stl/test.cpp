@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include "hashtable.h"
 #include <assert.h>
 #include <list>
 #include "Vector.h"
@@ -277,4 +278,61 @@ void list_test1() {
         cout << i << " ";
     }
     cout << endl;
+}
+template <typename T>
+struct _equal {
+    bool operator()(const T& i, const T&j) {
+        return i==j;
+    }
+};
+template <typename T>
+struct ident {
+    T& operator()(const T& val) {
+        return val;
+    }
+};
+void hashtable_test() {
+
+    Hashtable<int, int,hash<int>,_equal<int>,ident<int>> ht(0, _equal<int>(),hash<int>() ,ident<int>());
+    ht.insert_unique(1);
+    ht.insert_unique(1);
+    ht.insert_unique(2);
+    //ht.resize(50);
+    ht.insert_unique(3);
+    auto i1 = ht.insert_unique(4);
+    auto i2 = ht.insert_unique(59);
+    auto i3 = ht.insert_unique(44);
+    cout << ht.size() << endl;
+    auto beg = ht.begin();
+    for (int i = 0; i < ht.size(); i++) {
+        cout << *beg++  << " ";
+    }
+    ht.resize(1200);
+    auto beg2 = ht.begin();
+    cout << endl;
+    for (int i = 0; i < ht.size(); i++) {
+        cout << *beg2++  << " ";
+    }
+    cout << endl;
+    Hashtable<int, int,hash<int>,_equal<int>,ident<int>> htt(0, _equal<int>(),hash<int>() ,ident<int>());
+    htt.insert_unique(5);
+    htt.insert_unique(2);
+    htt.insert_equal(2);
+    htt.insert_unique(3);
+    htt.insert_unique(111);
+    htt.insert_unique(56);
+    htt.insert_unique(22);
+    htt.insert_equal(22);
+    auto beg3 = htt.begin();
+    cout << endl;
+    for (int i = 0; i < htt.size(); i++) {
+        cout << *beg3++  << " ";
+    }
+    cout<<endl;
+    ht.copy_from(&htt);
+    auto beg4 = ht.begin();
+    for (int i = 0; i < ht.size(); i++) {
+        cout << *beg4++  << " ";
+    }
+    cout <<endl;
 }
