@@ -199,7 +199,7 @@ Hashtable<K, V, H, E, Ex>::insert_unique(const Hashtable::value_type &val) {
     node *node = buckets[bucket];
     auto *n = node;
     while (n) {
-        if (n->val == val) {
+        if (equals(get_key(val), get_key(n->val))) {
             return {iterator(n, this), false};
         }
         n = n->next;
@@ -220,7 +220,7 @@ Hashtable<K, V, H, E, Ex>::insert_equal(const Hashtable::value_type &val) {
     node *node = buckets[bucket];
     auto *n = node;
     while (n) {
-        if (n->val == val) {
+        if (equals(get_key(val), get_key(n->val))) {
             Hashtable::node *tem = create_node(val);
             tem->next = n->next;
             n->next = tem;
