@@ -281,18 +281,18 @@ void list_test1() {
 }
 template <typename T>
 struct _equal {
-    bool operator()(const T& i, const T&j) {
+    bool operator()(const T& i, const T&j)const {
         return i==j;
     }
 };
 template <typename T>
 struct ident {
-    T& operator()(const T& val) {
+    const T& operator()(const T& val) const {
         return val;
     }
 };
 void hashtable_test() {
-
+    typedef Hashtable<int, int,hash<int>,_equal<int>,ident<int>> hashtable;
     Hashtable<int, int,hash<int>,_equal<int>,ident<int>> ht(0, _equal<int>(),hash<int>() ,ident<int>());
     ht.insert_unique(1);
     ht.insert_unique(1);
@@ -313,8 +313,7 @@ void hashtable_test() {
     for (int i = 0; i < ht.size(); i++) {
         cout << *beg2++  << " ";
     }
-    cout << endl;
-    Hashtable<int, int,hash<int>,_equal<int>,ident<int>> htt(0, _equal<int>(),hash<int>() ,ident<int>());
+   hashtable htt(0, _equal<int>(),hash<int>() ,ident<int>());
     htt.insert_unique(5);
     htt.insert_unique(2);
     htt.insert_equal(2);
@@ -335,4 +334,51 @@ void hashtable_test() {
         cout << *beg4++  << " ";
     }
     cout <<endl;
+    hashtable ht1(htt);
+    auto beg5 = ht1.begin();
+    for (int i = 0; i < ht1.size(); i++) {
+        cout << *beg5++  << " ";
+    }
+    cout <<endl;
+    //----------------erase
+    auto it = find(ht1.begin(), ht1.end(), 22);
+    ht1.erase(it);
+    auto it1 = find(ht1.begin(), ht1.end(), 111);
+    ht1.erase(it1);
+    ht1.erase(find(ht1.begin(), ht1.end(), 2));
+    ht1.erase(find(ht1.begin(), ht1.end(), 2));
+    auto beg6 = ht1.begin();
+    for (int i = 0; i < ht1.size(); i++) {
+        cout << *beg6++  << " ";
+    }
+    cout <<endl;
+    auto end = htt.begin();
+    advance(end, 3);
+    htt.erase(htt.begin(),end);
+    auto beg7 = htt.begin();
+    for (int i = 0; i < htt.size(); i++) {
+        cout << *beg7++  << " ";
+    }
+    cout <<endl;
+    //-------------------swap
+    htt.swap(ht1);
+    auto beg8 = htt.begin();
+    for (int i = 0; i < htt.size(); i++) {
+        cout << *beg8++  << " ";
+    }
+    cout << endl;
+    //-------------count
+    htt.insert_equal(3);
+    htt.insert_equal(3);
+    htt.insert_equal(3);
+    cout << htt.count(3) << endl;
+    //---------------equal_range and find
+    auto pair = htt.equal_range(3);
+    for (auto beg = pair.first; beg != pair.second;) {
+        cout << *beg++ << " ";
+    }
+    auto pair1 = htt.equal_range(110);
+    assert(pair1.first == htt.end() && pair1.second == htt.end());
+    cout << *pair.second;
+    cout << endl;
 }

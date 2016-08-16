@@ -9,13 +9,15 @@
 #include <memory.h>
 #include <algorithm>
 #include "Vector.h"
+
 using namespace std;
+
 template<typename T>
 struct _hash_node {
     _hash_node *next;
     T val;
 
-    _hash_node(const T &t) : val(t),next(nullptr){}
+    _hash_node(const T &t) : val(t), next(nullptr) {}
 };
 
 template<typename Key, typename Value, typename Hash_Fun, typename EqK, typename ExtractKey>
@@ -64,27 +66,15 @@ struct _hash_iterator : public iterator<std::forward_iterator_tag, Value> {
     }
 
     bool operator!=(const iterator &other) {
-        return !cur == other.cur;
+        return cur != other.cur;
     }
 };
 
 
-static const int _S_num_primes = 29;
-unsigned long __stl_prime_list[_S_num_primes] =
-        {
-                5ul, 53ul, 97ul, 193ul, 389ul,
-                769ul, 1543ul, 3079ul, 6151ul, 12289ul,
-                24593ul, 49157ul, 98317ul, 196613ul, 393241ul,
-                786433ul, 1572869ul, 3145739ul, 6291469ul, 12582917ul,
-                25165843ul, 50331653ul, 100663319ul, 201326611ul, 402653189ul,
-                805306457ul, 1610612741ul, 3221225473ul, 4294967291ul
-        };
+static const int num_primes = 29;
+extern unsigned long prime_list[num_primes];
 
-unsigned long _stl_next_prime(unsigned long n) {
-    auto pos = lower_bound(begin(__stl_prime_list), end(__stl_prime_list), n);
-    return pos == end(__stl_prime_list) ?
-           __stl_prime_list[_S_num_primes - 1] : *pos;
-}
+unsigned long next_prime(unsigned long n);
 
 template<typename Key, typename Value, typename Hash_Fun, typename EqK, typename ExtractKey>
 class Hashtable {
@@ -101,6 +91,7 @@ public:
 
 private:
     allocator<node> alloc;//为节点分配的分配器
+    float mlf;//max_load_factor
 
     equal_key equals;
     hasher m_hash;
@@ -139,16 +130,24 @@ private:
 public:
     //constructor
     Hashtable(size_t n, equal_key eq, hasher h, ExtractKey ek) :
-            equals(eq), m_hash(h), get_key(ek), buckets(_stl_next_prime(0), nullptr) {
+            equals(eq), m_hash(h), get_key(ek), buckets(next_prime(0), nullptr),mlf(1) {
 
         element_count = 0;
+    }
+
+    Hashtable(const Hashtable &other) : equals(other.equals),
+                                        m_hash(other.m_hash),
+                                        get_key(other.get_key),
+                                        mlf(1)
+    {
+        copy_from(&other);
     }
 
     typename vector<node *>::size_type bucket_size() const { return buckets.size(); }
 
     size_type size() const { return element_count; }
 
-    size_type max_size()const { return __stl_prime_list[_S_num_primes-1];}
+    size_type max_size() const { return prime_list[num_primes - 1]; }
 
     void resize(size_t n);
 
@@ -158,7 +157,21 @@ public:
 
     void clear();
 
-    void copy_from(Hashtable *other);
+    iterator find(const key_type& key);
+
+    pair<iterator, iterator> equal_range(const key_type &key);
+
+    iterator erase(iterator pos);
+
+    iterator erase(iterator first, iterator last);
+
+    size_type erase(const key_type&);
+
+    void copy_from(const Hashtable *other);
+
+    void swap(Hashtable& other);
+
+    size_type count(const key_type &key)const ;
 
     iterator begin() {
         return iterator(element_begin(), this);
@@ -167,12 +180,26 @@ public:
     iterator end() {
         return iterator(nullptr, this);
     }
+
+    //hash policy
+    float load_factor() const { return bucket_size() / size();};//Returns the average number of elements per bucket, that is, size() divided by bucket_count().
+
+    float max_load_factor()const { return mlf; }  //1) Returns current maximum load factor.
+
+
+    void max_load_factor(float ml) {mlf = ml;};//2) Sets the maximum load factor to ml.
+
+
+    void rehash(size_type count);  //Sets the number of buckets to count and rehashes the container
+
+
+    void reserve(size_type count);//Effectively calls rehash(std::ceil(count / max_load_factor()))
 };
 
 template<typename K, typename V, typename H, typename E, typename Ex>
 void Hashtable<K, V, H, E, Ex>::resize(size_t n) {
     if (n > bucket_size()) {
-        size_t new_size = _stl_next_prime(n);
+        size_t new_size = next_prime(n);
         if (new_size > bucket_size()) {//此时再rehash
             stl::Vector<node *> temp(new_size, nullptr);
             for (int i = 0; i < buckets.size(); ++i) {
@@ -240,9 +267,9 @@ template<typename K, typename V, typename H, typename E, typename Ex>
 void Hashtable<K, V, H, E, Ex>::clear() {
     size_type bksz = bucket_size();
     for (int i = 0; i < bksz; ++i) {
-        node* first = buckets[i];
+        node *first = buckets[i];
         while (first) {
-            node* next = first->next;
+            node *next = first->next;
             destroy_node(first);
             first = next;
         }
@@ -252,16 +279,16 @@ void Hashtable<K, V, H, E, Ex>::clear() {
 }
 
 template<typename K, typename V, typename H, typename E, typename Ex>
-void Hashtable<K, V, H, E, Ex>::copy_from(Hashtable *other) {
+void Hashtable<K, V, H, E, Ex>::copy_from(const Hashtable *other) {
     clear();
-    buckets = stl::Vector<node*>(other->bucket_size(), nullptr);
-   // buckets.insert(buckets.end(), )
+    buckets = stl::Vector<node *>(other->bucket_size(), nullptr);
+    // buckets.insert(buckets.end(), )
     for (int i = 0; i < other->buckets.size(); ++i) {
-        node* first = other->buckets[i];
+        node *first = other->buckets[i];
         if (first) {
-            node* temp = create_node(first->val);
+            node *temp = create_node(first->val);
             buckets[i] = temp;
-            for(node* cur = first->next; cur; cur = cur->next) {
+            for (node *cur = first->next; cur; cur = cur->next) {
                 temp->next = create_node(cur->val);
                 temp = temp->next;
             }
@@ -269,5 +296,108 @@ void Hashtable<K, V, H, E, Ex>::copy_from(Hashtable *other) {
     }
     element_count = other->element_count;
 }
+
+template<typename K, typename V, typename H, typename E, typename Ex>
+typename Hashtable<K, V, H, E, Ex>::iterator
+Hashtable<K, V, H, E, Ex>::erase(iterator pos) {
+    if (pos.cur->next == nullptr) {//此时为该桶的最后一个元素删除之要将该桶置位nullptr
+        size_type bucket = bkt_num(*pos);
+        buckets[bucket] = nullptr;
+        node *cur = pos.cur;
+        iterator ret = ++pos;
+        destroy_node(cur);
+        element_count--;
+        return ret;
+    }
+    node *save = pos.cur->next->next;
+    *(pos.cur) = *(pos.cur->next);
+    destroy_node(pos.cur->next);
+    pos.cur->next = save;
+    element_count--;
+    return pos;
+}
+
+template<typename K, typename V, typename H, typename E, typename Ex>
+typename Hashtable<K, V, H, E, Ex>::iterator
+Hashtable<K, V, H, E, Ex>::erase
+        (Hashtable::iterator first, Hashtable::iterator last) {
+    auto distanc = distance(first, last);
+    for (; first != last;) {
+        if (first.cur->next != last.cur) {//当前删除目标的的下个位置为last，则erase后就结束（因为erase的实现方式是删除后面的迭代器而不是当前的）
+            first = erase(first);
+        }
+        else {
+            return erase(first);
+        }
+    }
+    return first;
+}
+
+template<typename K, typename V, typename H, typename E, typename Ex>
+typename Hashtable<K, V, H, E, Ex>::size_type
+Hashtable<K, V, H, E, Ex>::erase(const Hashtable::key_type &key) {
+    size_type count = 0;
+    auto it = begin();
+    auto last = end();
+    while (it != last) {
+        it = std::find_if(it, end(),
+                          [this, &key](const value_type &val) { return equals(get_key(val), key);});//condition
+        if (it == last) break;
+        it = erase(it);
+        count++;
+    }
+    return count;
+}
+
+template<typename K, typename V, typename H, typename E, typename Ex>
+void Hashtable<K, V, H, E, Ex>::swap(Hashtable &other) {
+    buckets.swap(other.buckets);
+    std::swap(element_count, other.element_count);
+}
+
+template<typename K, typename V, typename H, typename E, typename Ex>
+typename Hashtable<K, V, H, E, Ex>::size_type
+Hashtable<K, V, H, E, Ex>::count(const key_type &key)const {
+    size_type count = 0;
+    //未优化版
+//    for_each(begin(), end(), [&count,this](const value_type& val){if (equals(get_key(val), key)) count++;});
+//    return count;
+    //优化版
+    size_type bkt = bkt_num(key);
+    node* first = buckets[bkt];
+    while (first != nullptr) {
+        if (equals(get_key(first->val), key)) count++;
+        first = first->next;
+    }
+    return count;
+}
+
+template<typename K, typename V, typename H, typename E, typename Ex>
+typename Hashtable<K, V, H, E, Ex>::iterator
+Hashtable<K, V, H, E, Ex>::find(const key_type &key) {
+    size_type bkt = bkt_num(key);
+    node* first = buckets[bkt];
+    while (first != nullptr) {
+        if (equals(get_key(first->val), key))
+            return iterator(first, this);
+        first = first->next;
+    }
+    return end();
+}
+
+template<typename K, typename V, typename H, typename E, typename Ex>
+pair<typename Hashtable<K, V, H, E, Ex>::iterator, typename Hashtable<K, V, H, E, Ex>::iterator>
+Hashtable<K, V, H, E, Ex>::equal_range(const key_type &key) {
+    auto first = this->find(key);
+    if (first == end()) {
+        return {end(), end()};
+    }
+    node* cur = first.cur;
+    while (cur && cur->next && equals(get_key(cur->next->val), key)) {
+        cur = cur->next;
+    }
+    return {first, iterator(cur, this)};
+}
+
 
 #endif //STL_HASHTABLE_H

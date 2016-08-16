@@ -21,7 +21,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -34,8 +33,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+            <state relative-caret-position="391">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -43,101 +42,83 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="unordered_set.h" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/c++/4.8/bits/unordered_set.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11447">
-              <caret line="546" column="6" selection-start-line="546" selection-start-column="6" selection-end-line="546" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hashtable.h" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/c++/4.8/bits/hashtable.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="1135" column="24" selection-start-line="1135" selection-start-column="24" selection-end-line="1135" selection-end-column="24" />
-              <folding>
-                <element signature="e#37600#37786#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hashtable_policy.h" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/c++/4.8/bits/hashtable_policy.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="1453" column="10" selection-start-line="1453" selection-start-column="10" selection-end-line="1453" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hashtable.h" pinned="false" current-in-tab="false">
+      <file leaf-file-name="hashtable.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hashtable.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2812">
-              <caret line="270" column="1" selection-start-line="270" selection-start-column="1" selection-end-line="271" selection-end-column="0" />
+            <state relative-caret-position="854">
+              <caret line="203" column="41" selection-start-line="203" selection-start-column="41" selection-end-line="203" selection-end-column="41" />
               <folding>
                 <element signature="e#97#116#0" expanded="true" />
-                <element signature="e#207#219#0" expanded="true" />
-                <element signature="e#338#422#0" expanded="true" />
-                <element signature="e#455#539#0" expanded="true" />
-                <element signature="e#5831#5892#0" expanded="true" />
+                <element signature="e#209#221#0" expanded="true" />
+                <element signature="e#342#426#0" expanded="true" />
+                <element signature="e#459#543#0" expanded="true" />
+                <element signature="e#1751#1835#0" expanded="true" />
+                <element signature="e#6421#6482#0" expanded="true" />
+                <element signature="e#7595#7656#0" expanded="true" />
+                <element signature="e#8276#8337#0" expanded="true" />
+                <element signature="e#8892#8953#0" expanded="true" />
+                <element signature="e#9406#9467#0" expanded="true" />
+                <element signature="e#9933#9994#0" expanded="true" />
+                <element signature="e#10147#10208#0" expanded="true" />
+                <element signature="e#10709#10770#0" expanded="true" />
+                <element signature="e#11120#11181#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Unorded_Set.h" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cmath" pinned="false" current-in-tab="false">
+        <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/cmath">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="251">
+              <caret line="188" column="26" selection-start-line="188" selection-start-column="11" selection-end-line="188" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hashtable.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hashtable.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Unorded_Set.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Unorded_Set.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="51" column="21" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
+            <state relative-caret-position="-561">
+              <caret line="118" column="0" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
               <folding>
                 <element signature="e#90#112#0" expanded="true" />
-                <element signature="e#144#237#0" expanded="true" />
-                <element signature="e#266#322#0" expanded="true" />
-                <element signature="e#458#514#0" expanded="true" />
-                <element signature="e#650#743#0" expanded="true" />
-                <element signature="e#1417#1432#0" expanded="true" />
-                <element signature="e#2356#2371#0" expanded="true" />
-                <element signature="e#2490#2505#0" expanded="true" />
+                <element signature="e#146#185#0" expanded="true" />
+                <element signature="e#213#252#0" expanded="true" />
+                <element signature="e#387#443#0" expanded="true" />
+                <element signature="e#579#672#0" expanded="true" />
+                <element signature="e#1440#1455#0" expanded="true" />
+                <element signature="e#2470#2485#0" expanded="true" />
+                <element signature="e#2604#2619#0" expanded="true" />
+                <element signature="e#3784#3823#0" expanded="true" />
+                <element signature="e#3887#3926#0" expanded="true" />
+                <element signature="e#3935#3950#0" expanded="true" />
+                <element signature="e#4348#4387#0" expanded="true" />
+                <element signature="e#4485#4524#0" expanded="true" />
+                <element signature="e#4810#4849#0" expanded="true" />
+                <element signature="e#4858#4873#0" expanded="true" />
+                <element signature="e#5060#5099#0" expanded="true" />
+                <element signature="e#5241#5280#0" expanded="true" />
+                <element signature="e#5289#5304#0" expanded="true" />
+                <element signature="e#5479#5518#0" expanded="true" />
+                <element signature="e#5677#5716#0" expanded="true" />
+                <element signature="e#5921#5960#0" expanded="true" />
+                <element signature="e#6114#6153#0" expanded="true" />
+                <element signature="e#6254#6293#0" expanded="true" />
+                <element signature="e#6442#6481#0" expanded="true" />
+                <element signature="e#6627#6666#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="List.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/List.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-              <folding>
-                <element signature="e#485#497#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stl_function.h" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/c++/4.8/bits/stl_function.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="472" column="11" selection-start-line="472" selection-start-column="11" selection-end-line="472" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -145,10 +126,11 @@
       <file leaf-file-name="test.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1328">
-              <caret line="334" column="0" selection-start-line="334" selection-start-column="0" selection-end-line="334" selection-end-column="0" />
+            <state relative-caret-position="839">
+              <caret line="347" column="43" selection-start-line="347" selection-start-column="43" selection-end-line="347" selection-end-column="43" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#7210#7222#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -163,15 +145,16 @@
         <option value="$PROJECT_DIR$/algorithms.h" />
         <option value="$PROJECT_DIR$/vector.cpp" />
         <option value="$PROJECT_DIR$/vector.h" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/List.h" />
         <option value="$PROJECT_DIR$/Hashtable.h" />
         <option value="$PROJECT_DIR$/test.h" />
         <option value="$PROJECT_DIR$/Vector.h" />
-        <option value="$PROJECT_DIR$/test.cpp" />
-        <option value="$PROJECT_DIR$/hashtable.h" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/hashtable.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/test.cpp" />
         <option value="$PROJECT_DIR$/Unorded_Set.h" />
+        <option value="$PROJECT_DIR$/hashtable.h" />
       </list>
     </option>
   </component>
@@ -183,10 +166,10 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="61" />
-    <option name="y" value="-4" />
-    <option name="width" value="1859" />
-    <option name="height" value="1084" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -214,24 +197,7 @@
     </navigator>
     <panes>
       <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stl" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stl" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
     </panes>
   </component>
@@ -440,11 +406,15 @@
       <workItem from="1470717179754" duration="8299000" />
       <workItem from="1470727432424" duration="4415000" />
       <workItem from="1470731869328" duration="5706000" />
+      <workItem from="1470887252806" duration="2124000" />
+      <workItem from="1471319914900" duration="4038000" />
+      <workItem from="1471323976420" duration="5753000" />
+      <workItem from="1471330201766" duration="14091000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57542000" />
+    <option name="totallyTimeSpent" value="83548000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -456,20 +426,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="61" y="-4" width="1859" height="1084" extended-state="6" />
-    <editor active="false" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.124798276" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.123958334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32655138" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32821077" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858595" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3214649" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3205269" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39626783" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39626783" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -499,72 +469,31 @@
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Vector.h</url>
-          <line>388</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/test.cpp</url>
-          <line>334</line>
-          <option name="timeStamp" value="90" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/hashtable.h</url>
-          <line>261</line>
-          <option name="timeStamp" value="95" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Unorded_Set.h</url>
-          <line>32</line>
-          <option name="timeStamp" value="96" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file:///usr/include/c++/4.8/bits/unordered_set.h</url>
           <line>1039</line>
           <option name="timeStamp" value="97" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/test.cpp</url>
+          <line>375</line>
+          <option name="timeStamp" value="127" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/test.cpp</url>
+          <line>338</line>
+          <option name="timeStamp" value="130" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/test.cpp</url>
+          <line>350</line>
+          <option name="timeStamp" value="131" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="98" />
+      <option name="time" value="133" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Vector.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1470732781323" expanded="true" signature="411:1706" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -603,7 +532,6 @@
     <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/stl_algobase.h" />
     <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/stl_list.h" />
     <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/list.tcc" />
-    <entry file="file://$PROJECT_DIR$/Hashtable.cpp" />
     <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/mingw32/bits/c++allocator.h" />
     <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/locale_classes.h" />
     <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/iostream" />
@@ -615,74 +543,51 @@
     <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/stl_iterator_base_types.h" />
     <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/stl_vector.h" />
     <entry file="file://H:/BaiduYunDownload/MinGW/include/richedit.h" />
-    <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/hashtable_policy.h" />
     <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/unordered_map.h" />
-    <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/hashtable.h" />
-    <entry file="file://$PROJECT_DIR$/Vector.h">
+    <entry file="file:///usr/include/c++/4.8/bits/stl_function.h" />
+    <entry file="file:///usr/include/c++/4.8/bits/hashtable.h" />
+    <entry file="file:///usr/include/c++/4.8/bits/hashtable_policy.h" />
+    <entry file="file:///usr/include/c++/4.8/bits/unordered_set.h" />
+    <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/hashtable_policy.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6275">
-          <caret line="411" column="0" selection-start-line="411" selection-start-column="0" selection-end-line="411" selection-end-column="0" />
-          <folding>
-            <marker date="1470732781323" expanded="true" signature="411:1706" ph="{...}" />
-          </folding>
+        <state relative-caret-position="19264">
+          <caret line="688" column="19" selection-start-line="688" selection-start-column="19" selection-end-line="688" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.h">
+    <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/hashtable.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-          <folding />
+        <state relative-caret-position="23520">
+          <caret line="840" column="6" selection-start-line="840" selection-start-column="6" selection-end-line="840" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.cpp">
+    <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/stl_function.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1328">
-          <caret line="334" column="0" selection-start-line="334" selection-start-column="0" selection-end-line="334" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="13188">
+          <caret line="471" column="2" selection-start-line="471" selection-start-column="2" selection-end-line="471" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+        <state relative-caret-position="140">
+          <caret line="5" column="97" selection-start-line="5" selection-start-column="97" selection-end-line="5" selection-end-column="97" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/include/c++/4.8/bits/stl_function.h">
+    <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/unordered_set.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="472" column="11" selection-start-line="472" selection-start-column="11" selection-end-line="472" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/c++/4.8/bits/hashtable.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="1135" column="24" selection-start-line="1135" selection-start-column="24" selection-end-line="1135" selection-end-column="24" />
-          <folding>
-            <element signature="e#37600#37786#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/c++/4.8/bits/hashtable_policy.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="1453" column="10" selection-start-line="1453" selection-start-column="10" selection-end-line="1453" selection-end-column="10" />
+        <state relative-caret-position="2492">
+          <caret line="89" column="30" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/List.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
+        <state relative-caret-position="896">
           <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
             <element signature="e#485#497#0" expanded="true" />
@@ -690,51 +595,124 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="358" column="27" selection-start-line="358" selection-start-column="27" selection-end-line="358" selection-end-column="27" />
+          <folding>
+            <marker date="1470732781323" expanded="true" signature="411:1706" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/bits/stl_algo.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="4485" column="46" selection-start-line="4485" selection-start-column="46" selection-end-line="4485" selection-end-column="46" />
+          <folding>
+            <element signature="e#147230#147276#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+        <state relative-caret-position="391">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/include/c++/4.8/bits/unordered_set.h">
+    <entry file="file://H:/BaiduYunDownload/MinGW/lib/gcc/mingw32/4.8.1/include/c++/cmath">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11447">
-          <caret line="546" column="6" selection-start-line="546" selection-start-column="6" selection-end-line="546" selection-end-column="6" />
+        <state relative-caret-position="251">
+          <caret line="188" column="26" selection-start-line="188" selection-start-column="11" selection-end-line="188" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Unorded_Set.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-561">
+          <caret line="118" column="0" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+          <folding>
+            <element signature="e#90#112#0" expanded="true" />
+            <element signature="e#146#185#0" expanded="true" />
+            <element signature="e#213#252#0" expanded="true" />
+            <element signature="e#387#443#0" expanded="true" />
+            <element signature="e#579#672#0" expanded="true" />
+            <element signature="e#1440#1455#0" expanded="true" />
+            <element signature="e#2470#2485#0" expanded="true" />
+            <element signature="e#2604#2619#0" expanded="true" />
+            <element signature="e#3784#3823#0" expanded="true" />
+            <element signature="e#3887#3926#0" expanded="true" />
+            <element signature="e#3935#3950#0" expanded="true" />
+            <element signature="e#4348#4387#0" expanded="true" />
+            <element signature="e#4485#4524#0" expanded="true" />
+            <element signature="e#4810#4849#0" expanded="true" />
+            <element signature="e#4858#4873#0" expanded="true" />
+            <element signature="e#5060#5099#0" expanded="true" />
+            <element signature="e#5241#5280#0" expanded="true" />
+            <element signature="e#5289#5304#0" expanded="true" />
+            <element signature="e#5479#5518#0" expanded="true" />
+            <element signature="e#5677#5716#0" expanded="true" />
+            <element signature="e#5921#5960#0" expanded="true" />
+            <element signature="e#6114#6153#0" expanded="true" />
+            <element signature="e#6254#6293#0" expanded="true" />
+            <element signature="e#6442#6481#0" expanded="true" />
+            <element signature="e#6627#6666#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="839">
+          <caret line="347" column="43" selection-start-line="347" selection-start-column="43" selection-end-line="347" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#7210#7222#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hashtable.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hashtable.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2812">
-          <caret line="270" column="1" selection-start-line="270" selection-start-column="1" selection-end-line="271" selection-end-column="0" />
+        <state relative-caret-position="854">
+          <caret line="203" column="41" selection-start-line="203" selection-start-column="41" selection-end-line="203" selection-end-column="41" />
           <folding>
             <element signature="e#97#116#0" expanded="true" />
-            <element signature="e#207#219#0" expanded="true" />
-            <element signature="e#338#422#0" expanded="true" />
-            <element signature="e#455#539#0" expanded="true" />
-            <element signature="e#5831#5892#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Unorded_Set.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="51" column="21" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
-          <folding>
-            <element signature="e#90#112#0" expanded="true" />
-            <element signature="e#144#237#0" expanded="true" />
-            <element signature="e#266#322#0" expanded="true" />
-            <element signature="e#458#514#0" expanded="true" />
-            <element signature="e#650#743#0" expanded="true" />
-            <element signature="e#1417#1432#0" expanded="true" />
-            <element signature="e#2356#2371#0" expanded="true" />
-            <element signature="e#2490#2505#0" expanded="true" />
+            <element signature="e#209#221#0" expanded="true" />
+            <element signature="e#342#426#0" expanded="true" />
+            <element signature="e#459#543#0" expanded="true" />
+            <element signature="e#1751#1835#0" expanded="true" />
+            <element signature="e#6421#6482#0" expanded="true" />
+            <element signature="e#7595#7656#0" expanded="true" />
+            <element signature="e#8276#8337#0" expanded="true" />
+            <element signature="e#8892#8953#0" expanded="true" />
+            <element signature="e#9406#9467#0" expanded="true" />
+            <element signature="e#9933#9994#0" expanded="true" />
+            <element signature="e#10147#10208#0" expanded="true" />
+            <element signature="e#10709#10770#0" expanded="true" />
+            <element signature="e#11120#11181#0" expanded="true" />
           </folding>
         </state>
       </provider>
