@@ -26,7 +26,7 @@
   
   ---
   
-#### 3.hashtable.h :
+#### 3.hashtable.h(unordered_map 和 unorderd_set仅仅就是hashtable的适配器这里不再赘述) :
 　　1. <code>hashtable</code>的迭代器(继承<code>foward_iterator</code>)指向非null的<code>_hash_node</code>(链表节点)，++操作会将迭代器中的节点指向下一个非null的节点<br>
 　　2. 模板有5个分别对应</ode>Key,Value(键值对),Hash_fun,Key_Equal,Extract_Key(从键值对取出Key)</code><br>
 　　3. <code>erase(iterator pos)</code>的算法是将后一个元素的值给该迭代器处的元素,然后删除后一个元素(因为无法获取前一个节点),若该节点为尾节点,则删除之,并返回++重载操作符后的iterator<br>
