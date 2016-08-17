@@ -115,16 +115,16 @@ public:
     //hash policy
     float load_factor() const { return ht.bucket_size() / ht.size();};//Returns the average number of elements per bucket, that is, size() divided by bucket_count().
 
-    float max_load_factor()const { } ; //1) Returns current maximum load factor.
+    float max_load_factor()const { return ht.max_load_factor();} ; //1) Returns current maximum load factor.
 
 
-    void max_load_factor(float ml);//2) Sets the maximum load factor to ml.
+    void max_load_factor(float ml) {ht.max_load_factor(ml);}//2) Sets the maximum load factor to ml.
 
 
-    void rehash(size_type count);  //Sets the number of buckets to count and rehashes the container
+    void rehash(size_type count) {ht.rehash(count);};  //Sets the number of buckets to count and rehashes the container
 
 
-    void reserve(size_type count);//Effectively calls rehash(std::ceil(count / max_load_factor()))
+    void reserve(size_type count) {ht.reserve(count);};//Effectively calls rehash(std::ceil(count / max_load_factor()))
 
 
     //functions

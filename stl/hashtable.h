@@ -93,9 +93,9 @@ private:
     allocator<node> alloc;//为节点分配的分配器
     float mlf;//max_load_factor
 
-    equal_key equals;
+    equal_key m_equals;
     hasher m_hash;
-    ExtractKey get_key;
+    ExtractKey m_get_key;
     stl::Vector<node *> buckets;
     size_t element_count;
 
@@ -130,16 +130,15 @@ private:
 public:
     //constructor
     Hashtable(size_t n, equal_key eq, hasher h, ExtractKey ek) :
-            equals(eq), m_hash(h), get_key(ek), buckets(next_prime(0), nullptr),mlf(1) {
+            m_equals(eq), m_hash(h), m_get_key(ek), buckets(next_prime(0), nullptr), mlf(1) {
 
         element_count = 0;
     }
 
-    Hashtable(const Hashtable &other) : equals(other.equals),
+    Hashtable(const Hashtable &other) : m_equals(other.m_equals),
                                         m_hash(other.m_hash),
-                                        get_key(other.get_key),
-                                        mlf(1)
-    {
+                                        m_get_key(other.m_get_key),
+                                        mlf(1) {
         copy_from(&other);
     }
 
@@ -149,7 +148,7 @@ public:
 
     size_type max_size() const { return prime_list[num_primes - 1]; }
 
-    void resize(size_t n);
+    void resize(size_t n);//将桶数量rehash到n
 
     pair<iterator, bool> insert_unique(const value_type &);
 
@@ -157,7 +156,7 @@ public:
 
     void clear();
 
-    iterator find(const key_type& key);
+    iterator find(const key_type &key);
 
     pair<iterator, iterator> equal_range(const key_type &key);
 
@@ -165,13 +164,13 @@ public:
 
     iterator erase(iterator first, iterator last);
 
-    size_type erase(const key_type&);
+    size_type erase(const key_type &);
 
     void copy_from(const Hashtable *other);
 
-    void swap(Hashtable& other);
+    void swap(Hashtable &other);
 
-    size_type count(const key_type &key)const ;
+    size_type count(const key_type &key) const;
 
     iterator begin() {
         return iterator(element_begin(), this);
@@ -182,51 +181,63 @@ public:
     }
 
     //hash policy
-    float load_factor() const { return bucket_size() / size();};//Returns the average number of elements per bucket, that is, size() divided by bucket_count().
+    float load_factor() const {
+        return bucket_size() / size();
+    };//Returns the average number of elements per bucket, that is, size() divided by bucket_count().
 
-    float max_load_factor()const { return mlf; }  //1) Returns current maximum load factor.
-
-
-    void max_load_factor(float ml) {mlf = ml;};//2) Sets the maximum load factor to ml.
-
-
-    void rehash(size_type count);  //Sets the number of buckets to count and rehashes the container
+    float max_load_factor() const { return mlf; }  //1) Returns current maximum load factor.
 
 
-    void reserve(size_type count);//Effectively calls rehash(std::ceil(count / max_load_factor()))
+    void max_load_factor(float ml) { mlf = ml; };//2) Sets the maximum load factor to ml.
+
+
+    void rehash(size_type count) {//rehashs the table and the buckets num is at least count
+        if (count > bucket_size()) {
+            size_type nextsize = next_prime(count);
+            if (nextsize != bucket_size())
+                resize(nextsize);
+        }
+    };  //Sets the number of buckets to count and rehashes the container
+
+
+    void reserve(size_type count) {//reserve space for count elements with the bucket size count / max_load_factor
+        rehash(std::ceil(count / max_load_factor()));
+    };//Effectively calls rehash(std::ceil(count / max_load_factor()))
+
+    //functions templates
+
+    hasher hash_function() const { return m_hash; };//Returns the function that hashes the keys.
+
+    equal_key key_eq() const { return m_equals;}//Returns the function that compares keys for equality.
 };
 
 template<typename K, typename V, typename H, typename E, typename Ex>
 void Hashtable<K, V, H, E, Ex>::resize(size_t n) {
-    if (n > bucket_size()) {
-        size_t new_size = next_prime(n);
-        if (new_size > bucket_size()) {//此时再rehash
-            stl::Vector<node *> temp(new_size, nullptr);
-            for (int i = 0; i < buckets.size(); ++i) {
-                node *first = buckets[i];
-                while (first) {
-                    size_t new_bucket = bkt_num(first->val, new_size);//rehash
-                    node *next = first->next;
-                    first->next = temp[new_bucket];
-                    temp[new_bucket] = first;
-                    first = next;
-                }
-            }
-            buckets.swap(temp);
+    stl::Vector<node *> temp(n, nullptr);
+    for (int i = 0; i < buckets.size(); ++i) {
+        node *first = buckets[i];
+        while (first) {
+            size_t new_bucket = bkt_num(first->val, n);//rehash
+            node *next = first->next;
+            first->next = temp[new_bucket];
+            temp[new_bucket] = first;
+            first = next;
         }
     }
+    buckets.swap(temp);
+
 }
 
 template<typename K, typename V, typename H, typename E, typename Ex>
 pair<typename Hashtable<K, V, H, E, Ex>::iterator, bool>
 Hashtable<K, V, H, E, Ex>::insert_unique(const Hashtable::value_type &val) {
-    resize(element_count + 1);//确保hash容量
+    reserve(element_count + 1);//确保hash容量
 
     size_type bucket = bkt_num(val);
     node *node = buckets[bucket];
     auto *n = node;
     while (n) {
-        if (equals(get_key(val), get_key(n->val))) {
+        if (m_equals(m_get_key(val), m_get_key(n->val))) {
             return {iterator(n, this), false};
         }
         n = n->next;
@@ -241,13 +252,13 @@ Hashtable<K, V, H, E, Ex>::insert_unique(const Hashtable::value_type &val) {
 template<typename K, typename V, typename H, typename E, typename Ex>
 typename Hashtable<K, V, H, E, Ex>::iterator
 Hashtable<K, V, H, E, Ex>::insert_equal(const Hashtable::value_type &val) {
-    resize(element_count + 1);//确保hash容量
+    reserve(element_count + 1);//确保hash容量
 
     size_type bucket = bkt_num(val);
     node *node = buckets[bucket];
     auto *n = node;
     while (n) {
-        if (equals(get_key(val), get_key(n->val))) {
+        if (m_equals(m_get_key(val), m_get_key(n->val))) {
             Hashtable::node *tem = create_node(val);
             tem->next = n->next;
             n->next = tem;
@@ -273,7 +284,7 @@ void Hashtable<K, V, H, E, Ex>::clear() {
             destroy_node(first);
             first = next;
         }
-        buckets[i] = nullptr;
+        buckets[i] = nullptr;//must
     }
     element_count = 0;
 }
@@ -341,7 +352,7 @@ Hashtable<K, V, H, E, Ex>::erase(const Hashtable::key_type &key) {
     auto last = end();
     while (it != last) {
         it = std::find_if(it, end(),
-                          [this, &key](const value_type &val) { return equals(get_key(val), key);});//condition
+                          [this, &key](const value_type &val) { return m_equals(m_get_key(val), key); });//condition
         if (it == last) break;
         it = erase(it);
         count++;
@@ -357,16 +368,16 @@ void Hashtable<K, V, H, E, Ex>::swap(Hashtable &other) {
 
 template<typename K, typename V, typename H, typename E, typename Ex>
 typename Hashtable<K, V, H, E, Ex>::size_type
-Hashtable<K, V, H, E, Ex>::count(const key_type &key)const {
+Hashtable<K, V, H, E, Ex>::count(const key_type &key) const {
     size_type count = 0;
     //未优化版
-//    for_each(begin(), end(), [&count,this](const value_type& val){if (equals(get_key(val), key)) count++;});
+//    for_each(begin(), end(), [&count,this](const value_type& val){if (m_equals(m_get_key(val), key)) count++;});
 //    return count;
     //优化版
     size_type bkt = bkt_num(key);
-    node* first = buckets[bkt];
+    node *first = buckets[bkt];
     while (first != nullptr) {
-        if (equals(get_key(first->val), key)) count++;
+        if (m_equals(m_get_key(first->val), key)) count++;
         first = first->next;
     }
     return count;
@@ -376,9 +387,9 @@ template<typename K, typename V, typename H, typename E, typename Ex>
 typename Hashtable<K, V, H, E, Ex>::iterator
 Hashtable<K, V, H, E, Ex>::find(const key_type &key) {
     size_type bkt = bkt_num(key);
-    node* first = buckets[bkt];
+    node *first = buckets[bkt];
     while (first != nullptr) {
-        if (equals(get_key(first->val), key))
+        if (m_equals(m_get_key(first->val), key))
             return iterator(first, this);
         first = first->next;
     }
@@ -392,8 +403,8 @@ Hashtable<K, V, H, E, Ex>::equal_range(const key_type &key) {
     if (first == end()) {
         return {end(), end()};
     }
-    node* cur = first.cur;
-    while (cur && cur->next && equals(get_key(cur->next->val), key)) {
+    node *cur = first.cur;
+    while (cur && cur->next && m_equals(m_get_key(cur->next->val), key)) {
         cur = cur->next;
     }
     return {first, iterator(cur, this)};

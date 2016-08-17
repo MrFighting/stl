@@ -381,4 +381,38 @@ void hashtable_test() {
     assert(pair1.first == htt.end() && pair1.second == htt.end());
     cout << *pair.second;
     cout << endl;
+    //----------------rehash policy
+    cout << "rehash policy--------------------------------------"<<endl;
+    hashtable htab(0, _equal<int>(),hash<int>() ,ident<int>());
+    for (int j = 0; j < 50000; ++j) {
+        if (j % 2) {//奇数
+            htab.insert_unique(j);
+        }
+        else
+            htab.insert_equal(j);
+    }
+//    for (int i : htab) {
+//        cout << i << " ";
+//    }
+    cout << endl;
+    cout << "bucket size:" << htab.bucket_size() << " default max_load_fac is 1.0";
+    cout << endl;
+    htab.clear();
+//    for (int i : htab) {
+//        cout << i << " ";
+//    }
+    htab.max_load_factor(0.1);//set max_load_factor to 0.1
+    for (int j = 0; j < 50000; ++j) {
+        if (j % 2) {//奇数
+            htab.insert_unique(j);
+        }
+        else
+            htab.insert_equal(j);
+    }
+//    for (int i : htab) {
+//        cout << i << " ";
+//    }
+    cout << endl;
+    cout << "after bucket size:" << htab.bucket_size() << " about ten times larger";
+    cout << endl;
 }
