@@ -6,6 +6,7 @@
 #include <list>
 #include "Vector.h"
 #include "List.h"
+#include "Unorded_Set.h"
 
 //
 // Created by Administrator on 2016/8/3.
@@ -414,5 +415,120 @@ void hashtable_test() {
 //    }
     cout << endl;
     cout << "after bucket size:" << htab.bucket_size() << " about ten times larger";
+    cout << endl;
+}
+
+void unordered_set_test() {
+    typedef Unorded_Set<int> set;
+    set s1;
+    s1.insert(1);
+    s1.insert(1);
+    s1.insert(2);
+    //ht.resize(50);
+    s1.insert(3);
+    auto i1 = s1.insert(4);
+    auto i2 = s1.insert(59);
+    auto i3 = s1.insert(44);
+    cout << s1.size() << endl;
+    auto beg = s1.begin();
+    for (int i = 0; i < s1.size(); i++) {
+        cout << *beg++  << " ";
+    }
+    s1.rehash(1200);
+    auto beg2 = s1.begin();
+    cout << endl;
+    for (int i = 0; i < s1.size(); i++) {
+        cout << *beg2++  << " ";
+    }
+    cout << endl;
+    set set2;
+    set2.insert(5);
+    set2.insert(2);
+    set2.insert(2);
+    set2.insert(3);
+    set2.insert(111);
+    set2.insert(56);
+    set2.insert(22);
+    set2.insert(22);
+    auto beg3 = set2.begin();
+    cout << endl;
+    for (int i = 0; i < set2.size(); i++) {
+        cout << *beg3++  << " ";
+    }
+    cout<<endl;
+    //----------------erase
+    auto it = find(s1.begin(), s1.end(), 22);
+    s1.erase(it);
+    auto it1 = find(s1.begin(), s1.end(), 111);
+    s1.erase(it1);
+    s1.erase(find(s1.begin(), s1.end(), 2));
+    s1.erase(find(s1.begin(), s1.end(), 2));
+    auto beg6 = s1.begin();
+    for (int i = 0; i < s1.size(); i++) {
+        cout << *beg6++  << " ";
+    }
+    cout <<endl;
+    auto end = set2.begin();
+    advance(end, 3);
+    set2.erase(set2.begin(),end);
+    auto beg7 = set2.begin();
+    for (int i = 0; i < set2.size(); i++) {
+        cout << *beg7++  << " ";
+    }
+    cout <<endl;
+    //-------------------swap
+    set2.swap(s1);
+    auto beg8 = set2.begin();
+    for (int i = 0; i < set2.size(); i++) {
+        cout << *beg8++  << " ";
+    }
+    cout << endl;
+    //-------------count
+    set2.insert(3);
+    set2.insert(3);
+    set2.insert(3);
+    cout << set2.count(3) << endl;
+    //---------------equal_range and find
+    auto pair = set2.equal_range(3);
+    for (auto beg = pair.first; beg != pair.second;) {
+        cout << *beg++ << " ";
+    }
+    auto pair1 = set2.equal_range(110);
+    assert(pair1.first == set2.end() && pair1.second == set2.end());
+    cout << *pair.second;
+    cout << endl;
+    //----------------rehash policy
+    cout << "rehash policy--------------------------------------"<<endl;
+    set set3;
+    for (int j = 0; j < 50000; ++j) {
+        if (j % 2) {//奇数
+            set3.insert(j);
+        }
+        else
+            set3.insert(j);
+    }
+//    for (int i : htab) {
+//        cout << i << " ";
+//    }
+    cout << endl;
+    cout << "bucket size:" << set3.bucket_size() << " default max_load_fac is 1.0";
+    cout << endl;
+    set3.clear();
+//    for (int i : htab) {
+//        cout << i << " ";
+//    }
+    set3.max_load_factor(0.1);//set max_load_factor to 0.1
+    for (int j = 0; j < 50000; ++j) {
+        if (j % 2) {//奇数
+            set3.insert(j);
+        }
+        else
+            set3.insert(j);
+    }
+//    for (int i : htab) {
+//        cout << i << " ";
+//    }
+    cout << endl;
+    cout << "after bucket size:" << set3.bucket_size() << " about ten times larger";
     cout << endl;
 }

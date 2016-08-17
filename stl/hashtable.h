@@ -311,6 +311,7 @@ void Hashtable<K, V, H, E, Ex>::copy_from(const Hashtable *other) {
 template<typename K, typename V, typename H, typename E, typename Ex>
 typename Hashtable<K, V, H, E, Ex>::iterator
 Hashtable<K, V, H, E, Ex>::erase(iterator pos) {
+    if (pos == end()) return end();
     if (pos.cur->next == nullptr) {//此时为该桶的最后一个元素删除之要将该桶置位nullptr
         size_type bucket = bkt_num(*pos);
         buckets[bucket] = nullptr;

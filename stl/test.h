@@ -13,4 +13,6 @@ void vector_test3();//test shrink_to_fit and resize and swap
 void list_test1();//test constructor and push_back pop_back push_front and pop_front
 
 void hashtable_test();
+
+void unordered_set_test();
 #endif //STL_TEST_H

@@ -22,5 +22,6 @@ int main()
 {
     std::unordered_set<int> set;
     //set.insert()
-   hashtable_test();
+   //hashtable_test();
+    unordered_set_test();
 }

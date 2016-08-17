@@ -82,6 +82,8 @@ public:
 
     size_type max_size() const { return ht.max_size();}
 
+    size_type bucket_size() const { return ht.bucket_size();}
+
     //modifiers
     void clear() {ht.clear();} //clears the contents
     std::pair<iterator, bool> insert(const value_type &value) { return ht.insert_unique(value);}
