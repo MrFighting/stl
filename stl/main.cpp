@@ -5,10 +5,9 @@
 #include "List.h"
 #include <unordered_map>
 #include <unordered_set>
-#include <assert.h>
 #include "Unorded_Set.h"
-#include <Hashtable.h>
 #include "test.h"
+#include "Unorderd_Map.h"
 using namespace std;
 
 struct Foo {
@@ -21,7 +20,9 @@ struct Foo {
 int main()
 {
     std::unordered_set<int> set;
+    std::unordered_set<int> st;
+    set == st;
     //set.insert()
    //hashtable_test();
-    unordered_set_test();
+    unordered_map_test();
 }

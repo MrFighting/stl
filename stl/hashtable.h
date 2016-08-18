@@ -100,11 +100,11 @@ private:
     size_t element_count;
 
     size_type bkt_num(const Value &val, size_t n) const {
-        return m_hash(val) % n;
+        return m_hash(m_get_key(val)) % n;
     };
 
     size_type bkt_num(const Value &val) const {
-        return m_hash(val) % bucket_size();
+        return m_hash(m_get_key(val)) % bucket_size();
     };
 
     node *create_node(const value_type &val) {

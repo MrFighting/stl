@@ -1,16 +1,18 @@
+
+//
+// Created by Administrator on 2016/8/3.
+//
+#include "test.h"
 #include <iostream>
 #include <algorithm>
-#include <vector>
 #include "hashtable.h"
 #include <assert.h>
 #include <list>
 #include "Vector.h"
 #include "List.h"
 #include "Unorded_Set.h"
-
-//
-// Created by Administrator on 2016/8/3.
-//
+#include "Unorderd_Map.h"
+using  namespace std;
 void vector_test1() {
     std::vector<int> v;
     v.insert(v.begin(), 11);
@@ -122,8 +124,12 @@ void vector_test3() {
     assert(vector.size() == 0 && vector.capacity() == 0);
     cout << endl;
 }
-
-void list_test1() {
+void vector_test() {
+    vector_test1();
+    vector_test2();
+    vector_test3();
+}
+void list_test() {
     stl::List<int> l1{1,2,3,4,5};
 
     for (auto i : l1) {
@@ -416,6 +422,19 @@ void hashtable_test() {
     cout << endl;
     cout << "after bucket size:" << htab.bucket_size() << " about ten times larger";
     cout << endl;
+    //------------------------
+    int arr[] = { 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    Unorded_Set<int> ust1(std::begin(arr), std::end(arr));
+    Unorded_Set<int> ust2(std::begin(arr), std::end(arr));
+
+    ust1.erase(9);
+    auto n = ust2.erase(9);
+    assert(n == 1);
+    ust1.erase(7);
+    auto ite = ust2.find(7);
+    ite = ust2.erase(ite);
+    assert(ite != ust2.end());
+    assert(std::equal(ust1.begin(),ust1.end(), ust2.begin()));
 }
 
 void unordered_set_test() {
@@ -531,4 +550,35 @@ void unordered_set_test() {
     cout << endl;
     cout << "after bucket size:" << set3.bucket_size() << " about ten times larger";
     cout << endl;
+}
+
+struct eqstr {
+    bool operator()(const char* lhs, const char* rhs) {
+        return strcmp(lhs,rhs) == 0;
+    }
+};
+void unordered_map_test() {
+
+    typedef Unordered_Map<const char*, int, hash<const char*>, eqstr> map;
+    map days;
+    days["jan"] = 31;
+    days["feb"] = 28;
+    days["mar"] = 31;
+    days["apr"] = 30;
+    days["may"] = 31;
+    days["jun"] = 30;
+    days["jul"] = 31;
+    days["aug"] = 31;
+    days["sep"] = 30;
+    days["oct"] = 31;
+    days["nov"] = 30;
+    days["dec"] = 31;
+
+    cout << "september->" << days["sep"] << endl;
+    cout << "june     ->" << days["jun"] << endl;
+    cout << "februrary->" << days["feb"] << endl;
+    cout << "december ->" << days["dec"] << endl;
+    for (auto pair : days) {
+        cout << pair.first << endl;
+    }
 }

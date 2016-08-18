@@ -169,7 +169,7 @@ template<class Key, class Hash, class KeyEqual>
 template<class InputIt>
 void Unorded_Set<Key, Hash, KeyEqual>::insert(InputIt first, InputIt last) {
     std::for_each(first, last,
-             [this](const key_type& val){ht.insert_unique(val);});
+                  [this](const key_type& val){ht.insert_unique(val);});
 }
 
 template<class Key, class Hash, class KeyEqual>
