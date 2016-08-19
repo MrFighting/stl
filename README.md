@@ -1,9 +1,9 @@
 # stl
-**我的小型stl,裁剪了一些算法和数据结构,增加了一些数据结构,有一些算法用到了std里的**
+**一个小型stl容器库**
 
 **主要目标:** 练习算法和数据结构,熟练一下c++模板的运用,增加代码量
 
-**参考资料：**[cppreference](http://zh.cppreference.com/w/cpp)以及[cplusplus](http://www.cplusplus.com/reference/)还有**STL源码剖析**(侯捷)
+**参考资料：**[cppreference](http://zh.cppreference.com/w/cpp)以及[cplusplus](http://www.cplusplus.com/reference/)还有**STL源码剖析**(侯捷)以及[Algorithm(Sedgewick)](http://algs4.cs.princeton.edu/home/)
 
 #### 1.Vector.h //一些成员函数裁掉了，但基本保持与STL中的一致,用三个测试程序测试,在写的途中遇到几个问题:<br>
 　　1. <code>insert</code>算法的有一点要注意，必须比较插入元素个数和插入点之后的元素个数然后再实行不同的算法,必须构造<code>alloc.construct</code>多出来的元素<br>
@@ -35,3 +35,17 @@
 　　6. <code>begin()</code>迭代器是指向第一个非null的节点,<code>end()</code>迭代器指向<code>iterator(nullptr,this)</code><br>
 　　7. 可以设置最大装载因子<code>(max_load_facotr)</code>,当调用<code>reserve(size_t count)</code>--预留countge元素空间时候,确保装载因子不大于最大装载因子(既是调用<code>rehash(count/max_load_factor))</code><br>
   
+---
+
+#### 4.Stack,Queque(较为简单,适配Vector即可)
+
+---
+
+#### 5.Priority_Queue(优先级队列，并未按照stl的写法)
+　　1. <code>Priority_Queue</code>的底层固定为<code>Vector</code>,通过上升和下层元素实现heap的功能
+　　2. **注意**元素的起始位置是从vec的第0开始,并未像是Algorithm书中从1开始,这里就讲算法复杂化了,比如某个需要下沉某个位置index需要知道其右子节点<code>(index*2+2)</code>然后比较左右子节点大小,大的那个再与index所在节点比较,如果index处小,则交换他们,更新<code>index =child_index(子节点的位置)</code>,<code>child_index=index*2+2</code>,重复该过程,直到没有比index位置元素大的时候停止比较(或者子节点index > 容器size时终止循环).**而且**还要判断是否最终的子节点的父节点没有右节点的情况,然后比大小,需要时再交换一次<br>
+　　3. <code>make_heap</code>的算法较为简单,直接从元素中间到元素起始位置分别下沉(<code>percolate_down</code>)<br>
+　　4. <code>heap_sort</code>直接从pq的顶出取出元素,删除(pop)该元素,然后平衡,重复,直到为空就排好序了<br>
+　　
+---
+　　
