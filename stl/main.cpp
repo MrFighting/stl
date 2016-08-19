@@ -8,6 +8,8 @@
 #include "Unorded_Set.h"
 #include "test.h"
 #include "Unorderd_Map.h"
+#include <stack>
+#include "Stack.h"
 using namespace std;
 
 struct Foo {
@@ -24,5 +26,6 @@ int main()
     set == st;
     //set.insert()
    //hashtable_test();
-    unordered_map_test();
+   // unordered_map_test();
+    priority_queue_test();
 }

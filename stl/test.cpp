@@ -8,11 +8,15 @@
 #include "hashtable.h"
 #include <assert.h>
 #include <list>
+#include <queue>
 #include "Vector.h"
 #include "List.h"
 #include "Unorded_Set.h"
 #include "Unorderd_Map.h"
+#include "Priority_Queue.h"
+
 using  namespace std;
+using namespace stl;
 void vector_test1() {
     std::vector<int> v;
     v.insert(v.begin(), 11);
@@ -580,5 +584,36 @@ void unordered_map_test() {
     cout << "december ->" << days["dec"] << endl;
     for (auto pair : days) {
         cout << pair.first << endl;
+    }
+}
+void priority_queue_test() {
+    Priority_Queue<int> pq{1,2,3,4,5};
+    Priority_Queue<int> pq1;
+    priority_queue<int> spq;
+    int loop = 200;
+    for (int i = 0; i < loop; i++) {
+        pq1.push(i);
+    }
+    cout << endl;
+    for (int j = 0; j < loop; j++) {
+        assert(pq1.top() == loop - j - 1);
+        pq1.pop();
+    }
+    cout << endl;
+    //-------------make_heap
+    const int arr_size = 100000;
+    int arr[arr_size];
+    for (int i = 0; i < arr_size; i++) {
+        arr[i] = i;
+    }
+    Priority_Queue<int> pqx(begin(arr), end(arr));
+//    for(int i : pqx) {
+//        cout << i << " ";
+//    }
+    cout << endl;
+    for (int j = 0; j < arr_size; j++) {
+        assert(pqx.top() == arr_size - j - 1);
+        //cout << pqx.top() << " ";
+        pqx.pop();
     }
 }
