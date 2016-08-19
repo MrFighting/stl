@@ -42,7 +42,7 @@
 
 ---
 
-#### 5.Priority_Queue(优先级队列，并未按照stl的写法)
+#### 5.Priority_Queue(优先级队列，并未按照std::priority_queue的写法)
 　　1. <code>Priority_Queue</code>的底层固定为<code>Vector</code>,通过上升和下层元素实现heap的功能
 　　2. **注意**元素的起始位置是从vec的第0开始,并未像是Algorithm书中从1开始,这里就讲算法复杂化了,比如某个需要下沉某个位置index需要知道其右子节点<code>(index*2+2)</code>然后比较左右子节点大小,大的那个再与index所在节点比较,如果index处小,则交换他们,更新<code>index =child_index(子节点的位置)</code>,<code>child_index=index*2+2</code>,重复该过程,直到没有比index位置元素大的时候停止比较(或者子节点index > 容器size时终止循环).**而且**还要判断是否最终的子节点的父节点没有右节点的情况,然后比大小,需要时再交换一次<br>
 　　3. <code>make_heap</code>的算法较为简单,直接从元素中间到元素起始位置分别下沉(<code>percolate_down</code>)<br>
