@@ -16,4 +16,8 @@ void unordered_set_test();
 void unordered_map_test();
 
 void priority_queue_test();
+
+void unique_ptr_test();
+
+void shared_ptr_test();
 #endif //STL_TEST_H

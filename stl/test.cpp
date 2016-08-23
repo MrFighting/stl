@@ -14,6 +14,7 @@
 #include "Unorded_Set.h"
 #include "Unorderd_Map.h"
 #include "Priority_Queue.h"
+#include "Memory.h"
 
 using  namespace std;
 using namespace stl;
@@ -616,4 +617,83 @@ void priority_queue_test() {
         //cout << pqx.top() << " ";
         pqx.pop();
     }
+}
+template<class T>
+struct Del{
+    void operator()(T *p){ delete p; }
+};
+void unique_ptr_test() {
+    Unique_Ptr<int> up1;
+    assert(up1 == nullptr);
+
+    Unique_Ptr<int> up2(new int(5));
+    assert(up2 != nullptr);
+    assert(*up2 == 5);
+
+    Unique_Ptr<string, Del<string>> up3(new string("lhy"), Del<string>());
+    assert(up3 != nullptr);
+    assert(*up3 == "lhy");
+
+    auto up4(std::move(up2));
+    assert(*up4 == 5);
+    assert(up2 == nullptr);
+
+    Unique_Ptr<string, Del<string>> up5;
+    up5 = std::move(up3);
+    assert(*up5 == "lhy");
+    assert(up3 == nullptr);
+
+    auto up6 = stl::make_unique<string>(6, 'z');
+    assert(*up6 == "zzzzzz");
+
+    Unique_Ptr<string> up = stl::make_unique<string>(10, '0');
+    up->append("111");
+    string x;
+    assert(*up == "0000000000111");
+
+    up.release();
+    assert(up == nullptr);
+
+    up.reset(new string("hello"));
+    assert(*up == "hello");
+
+    auto up9 = stl::make_unique<string>(2, '0');
+    auto up10 = stl::make_unique<string>(2, '1');
+
+    up9.swap(up10);
+    assert(*up9 == "11" && *up10 == "00");
+
+    swap(up9, up10);
+    assert(*up9 == "00" && *up10 == "11");
+}
+
+void shared_ptr_test() {
+    Shared_Ptr<int> sp1(new int(10));
+    assert(*(sp1.get()) == 10);
+
+    Shared_Ptr<int> sp2(new int(1));
+    assert(sp2.use_count() == 1);
+
+    auto sp3(sp2);
+    assert(sp3.use_count() == 2);
+    {
+        auto sp4 = sp2;
+        assert(sp4.use_count() == 3 && sp3.use_count() == sp4.use_count());
+
+        assert(sp2.get() == sp3.get() && sp2.get() == sp4.get());
+        assert(sp2 == sp3 && !(sp2 != sp4));
+    }
+    assert(sp3.use_count() == 2);
+
+    Shared_Ptr<string> sp5(new string("hello"));
+    assert(*sp5 == "hello");
+    sp5->append(" world");
+    assert(*sp5 == "hello world");
+
+    auto sp6 = stl::make_shared<string>(10, '0');
+    assert(*sp6 == "0000000000");
+
+    Shared_Ptr<int> spp;
+    assert(spp == nullptr);
+    assert(!(spp != nullptr));
 }
