@@ -50,3 +50,20 @@
 　　
 ---
 　　
+#### 6.Memory.h(包括unique_ptr和shared_ptr)
+　　1. <code>unique_ptr</code>的实现相对简单,就是对一个指针封装,一个指针只能存在于一个对象中,若要转移则调用<code>release</code>方法也可以<code>reset</code>指针(会delete原来的指针),拷贝构造和赋值是<code>delete</code>的,但可以对该类的**右值**进行赋值.<br>
+　　2. <code>shared_ptr</code>内涵了一个原子的(atomic)的计数器<code>std::atomic<size_t>* ref_count</code>需要**注意**的是:<br>
+　　　　1. **为什么为atomic:**<br>
+　　　　  因为如果两个线程同时对<code>ref_count</code>进行++或--操作,非原子操作可能会造成看起来只进行一次++操作(实际上是两次)<br>
+　　　　2. **为什么把ref_count放在堆上:**<br> 
+          　　　　```c++
+
+          　          Shared_Ptr<int> a(new int(1));//ref_count = 1<br>
+                      Share_Ptr<int> b(a);
+                 　　　  //此时若ref_count不在堆上则a.use_count == 1
+                　　　  //否则a.use_count会得到更新a.use_count  ==2
+          　　　　```
+　　　  <br>
+　　　  3. 增加<code>ref_count</code>只能是在拷贝,赋值时,赋值时会调用<code>decrease_count</code>减去先前的<code>ref_count</code><br>
+　　　  3. 析构时,调用<code>decrease_count</code>该函数在count为0时会释放掉计数器和指针<br>
+　　　  
