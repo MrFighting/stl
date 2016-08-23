@@ -57,10 +57,12 @@
 　　　　  因为如果两个线程同时对<code>ref_count</code>进行++或--操作,非原子操作可能会造成看起来只进行一次++操作(实际上是两次)<br>
 　　　　2. **为什么把ref_count放在堆上:**<br> 
 　　　　```c++
+
 　          Shared_Ptr<int> a(new int(1));//ref_count = 1
       　　　　Shared_Ptr<int> b(a);//
       　　　  //此时若ref_count不在堆上则a.use_count == 1
       　　　  //否则a.use_count会得到更新a.use_count ==
+      　　　  
         ```
 　　　  <br>
 　　　  4. 增加<code>ref_count</code>只能是在拷贝,赋值时,赋值时会调用<code>decrease_count</code>减去先前的<code>ref_count</code><br>
