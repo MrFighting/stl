@@ -61,8 +61,7 @@
 　          Shared_Ptr<int> a(new int(1));//ref_count = 1
       　　　　Shared_Ptr<int> b(a);//
       　　　  //此时若ref_count不在堆上则a.use_count == 1
-      　　　  //否则a.use_count会得到更新a.use_count ==
-      　　　  
+      　　　  //否则a.use_count会得到更新a.use_count == 2
         ```
 　　　  <br>
 　　　  4. 增加<code>ref_count</code>只能是在拷贝,赋值时,赋值时会调用<code>decrease_count</code>减去先前的<code>ref_count</code><br>
